@@ -1,0 +1,69 @@
+<ion-content padding #pageContent fullscreen>
+
+  <ion-item *ngFor="let item of items" >
+    <h2>Date: {{item.datecreate}}</h2>
+    <ion-row>
+      <ion-col col-4>
+        Traitement:
+      </ion-col>
+      <ion-col col-8>
+        {{item.traitement}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Evaluation
+      </ion-col>
+      <ion-col col-8>
+        {{item.evaluation}}
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4>
+        Observation
+      </ion-col>
+      <ion-col col-8>
+        {{item.observation}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4>
+        Coût
+      </ion-col>
+      <ion-col col-8>
+        {{item.cout_traitement}}
+      </ion-col>
+    </ion-row>
+
+    <button ion-button  round outline block (click)="editSoins(item)">Edit</button>
+  </ion-item>
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

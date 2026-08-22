@@ -1,0 +1,86 @@
+
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+  <ion-navbar>
+    <ion-title>Add Personel</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding #pageContent fullscreen>
+  <ion-item>
+    <ion-label>Departement</ion-label>
+    <ion-select selecDesktop [(ngModel)]="codeText" #code="ngModel" [compareWith]="compare">
+      <ion-option *ngFor="let item of items" [value]="item">{{item.nom}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Type personnel</ion-label>
+    <ion-select selecDesktop [(ngModel)]="natureText"  #type_personnel="ngModel">
+      <ion-option value="Médecin">Médecin</ion-option>
+      <ion-option value="Infimier">Infimier</ion-option>
+      <ion-option value="laborantin">laborantin</ion-option>
+      <ion-option value="Pharmacien">Pharmacien</ion-option>
+      <ion-option value="Assistant médical">Assistant médical</ion-option>
+      <ion-option value="Dentiste">Dentiste</ion-option>
+      <ion-option value="Pédiatre">Pédiatre</ion-option>
+      <ion-option value="Anesthésiste">Anesthésiste</ion-option>
+      <ion-option value="Généraliste">Généraliste</ion-option>
+      <ion-option value="Cardiologue">Cardiologue</ion-option>
+      <ion-option value="Sage femme">Sage femme</ion-option>
+      <ion-option value="Ambulancier">Ambulancier</ion-option>
+      <ion-option value="Urgentiste">Urgentiste</ion-option>
+      <ion-option value="Gynécologue">Gynécologue</ion-option>
+      <ion-option value="Autres">Autres</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+     <ion-input type="text" placeholder="nom" name="nom" #nom></ion-input>
+   </ion-item>
+
+   <ion-item>
+     <ion-input type="tel" placeholder="telephone" name="telephone" #telephone></ion-input>
+   </ion-item>
+   <ion-item>
+     <ion-input type="email" placeholder="Email" name="email" #email></ion-input>
+   </ion-item>
+   <ion-item>
+     <ion-input type="password" placeholder="Mot de passe" name="password" #password></ion-input>
+   </ion-item>
+
+
+
+
+   <ion-item>
+     <ion-input type="text" placeholder="matricule" name="matricule" #matricule></ion-input>
+   </ion-item>
+  <div padding>
+    <button ion-button  round outline block (click)="ajouter()">Enregistrer</button>
+  </div>
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

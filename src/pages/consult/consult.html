@@ -1,0 +1,291 @@
+<ion-content padding #pageContent fullscreen>
+  <ion-navbar *ngIf="etablissements">
+    <p>{{etablissements.name}}</p>
+    <h3>{{ etablissements.telephone }}</h3>
+  </ion-navbar>
+
+  <div *ngIf="show">
+    <div class="page-content">
+
+      <!-- start agenda patient list -->
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="card  card-box">
+            <div class="card-head">
+              <header> </header>
+              <div class="tools">
+                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+              </div>
+            </div>
+            <div class="card-body ">
+              <div class="table-wrap">
+                <div class="table-responsive">
+                  <table class="table display product-overview mb-30" id="support_table">
+                    <thead>
+                    <tr>
+                      <th> Centre hôspitalier  </th>
+                      <th> Téléphone du centre  </th>
+                      <th> Nom Du Médécin  </th>
+                      <th> Date de la consultation </th>
+                      <th> Auscultation </th>
+                      <th> Examen  </th>
+                      <th> Ordonance  </th>
+                      <th> Coût  </th>
+                      <th> Actions </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of consultation">
+                      <td>
+                        <ng-container *ngIf="item.Etsnom; then thenTemplate; else elseTemplate"></ng-container>
+                        <ng-template #thenTemplate>
+                          <a > {{item.Etsnom}} </a>
+                        </ng-template>
+                        <ng-template #elseTemplate>
+                          <a href="javascript:void(0)" (click)="showConsul(item)"> {{item.lieu}} </a>
+                        </ng-template>
+
+                      </td>
+                      <td > {{item.Etstelephone}} </td>
+                      <td> {{item.nom_medecin}} </td>
+                      <td> {{item.consul_datecreate}} </td>
+                      <td>{{item.auscul_contenu}}</td>
+                      <td> {{item.examen_contenu}} </td>
+                      <td> {{item.ordo_contenu}} </td>
+                      <td> {{item.cout}} &nbsp; FCFA</td>
+                      <td>
+                        <ng-container *ngIf="item.Etsnom; then devTemplate; else elsedevTemplate"></ng-container>
+                        <ng-template #devTemplate>
+                          <a href="javascript:void(0)" (click)="showOneConsult(item)" class="" data-toggle="tooltip" title="View" >
+                            <i class="fa fa-certificate"></i></a>
+                        </ng-template>
+                        <ng-template #elsedevTemplate>
+                          <a href="javascript:void(0)" (click)="showConsul(item)" class="" data-toggle="tooltip" title="View out" >
+                            <i class="fa fa-certificate"></i></a>
+                        </ng-template>
+                      </td>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end agenda patient list -->
+
+      <ion-fab right bottom>
+        <button ion-fab mini color="danger" (click)="formadd()"><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
+    </div>
+  </div>
+
+  <div *ngIf="showOne">
+    <div class="jumbotron text-center">
+      <div class="table-responsive">
+        <section id="tab-recap">
+          <div class="container-fluid">
+            <table class="table" border=3>
+              <tr>
+                <td>
+                  <ion-avatar item-left  >
+                    <h2><img src="{{server + item.filename}}" width="100px" height="70px"/></h2>
+                  </ion-avatar>
+                </td>
+                <td>{{item.nom}} &nbsp; {{item.prenom}}</td>
+                <td>Tel</td>
+                <td>{{item.telephone}}</td>
+                <td>Email</td>
+                <td>{{item.email}}</td>
+                <td><strong>Ne(e) le</strong></td>
+                <td>{{item.anneeNais}}</td>
+                <td><strong>Lieu de Naissance</strong></td>
+                <td>{{item.lieuNais}}</td>
+              </tr>
+            </table>
+            <table class="table" border=3>
+              <tr>
+                <td>{{item.Etsnom}}</td>
+                <td>Statut:<strong>{{item.Etsstatut}}</strong></td>
+                <td>Adresse:<strong>{{item.Etsadresse}}</strong></td>
+                <td>Tel:{{item.Etstelephone}}</td>
+                <td>Médécin:<strong>{{item.nom_medecin}}</strong></td>
+                <td>Date consultation:{{item.consul_datecreate}}</td>
+                <td>Statut:<strong>{{item.Etsstatut}}</strong></td>
+                <td>{{item.Etstelephone}}</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+    <h2 text-center="100px">Paramètre pris à la date du:<strong>{{item.consul_datecreate}}</strong> </h2>
+    <section id="notes">
+      <div class="table-responsive">
+        <table id="tab-head" border=1>
+          <tr>
+            <td class="title-cel coloured-cel">Paramètre</td>
+            <td class="title-cel">Valeur</td>
+            <td class="title-cel coloured-cel">Paramètre</td>
+            <td class="title-cel">Valeur</td>
+            <td class="title-cel coloured-cel">Paramètre</td>
+            <td class="title-cel">Valeur</td>
+          </tr>
+          <!-- Groupe 1 -->
+          <tr>
+            <td class="coloured-cel">TA</td>
+            <td>{{item.ta}}</td>
+            <td class="coloured-cel">DB</td>
+            <td>{{item.db}}</td>
+            <td class="coloured-cel">BG</td>
+            <td>{{item.bg}}</td>
+          </tr>
+
+          <tr>
+            <td class="coloured-cel">Pouls</td>
+            <td>{{item.pouls}}</td>
+            <td class="coloured-cel">Taille</td>
+            <td>{{item.taille}}</td>
+            <td class="coloured-cel">DDR</td>
+            <td>{{item.ddr}}</td>
+          </tr>
+
+          <tr>
+            <td class="coloured-cel">DPA</td>
+            <td>{{item.dpa}}</td>
+            <td class="coloured-cel">Tension</td>
+            <td>{{item.tension}}</td>
+            <td class="coloured-cel">DDR</td>
+            <td>{{item.ddr}}</td>
+          </tr>
+
+          <!-- Groupe 1 -->
+
+        </table>
+
+        <table>
+          <tr>
+            <td>TOTAL</td>
+            <td></td>
+            <td>33</td>
+            <td>409.50/660</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+
+
+    <section id="bottom">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4 col-print-4">
+            <div class="card-bas">
+              <h4 class="title">Auscultation</h4>
+              <p> {{item.auscul_contenu}}
+                Douala le : 11/06/2018 <br />
+                LE PRINCIPAL de l'hôpital Column 2 Lorem ipsum dolor..
+                Ut enim ad.. Ut enim ad..Ut enim ad..Ut enim ad..
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 col-print-4">
+            <div class="card-bas">
+              <h4 class="title">Examen</h4>
+              <p> {{item.examen_contenu}}
+                faire l'examen de sel contenu des examens recommandé <br />
+                bref figurera ici tout le contenu des examens recommandé
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-print-4">
+            <div class="card-bas">
+              <h4 class="title">Ordonance</h4>
+              <p> {{item.ordo_contenu}}
+                Douala le : 11/06/2018 <br />
+                LE PRINCIPAL de l'hôpital Column 2 Lorem ipsum dolor..
+                Ut enim ad.. Ut enim ad..Ut enim ad..Ut enim ad..
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <table class="float-right nb-tab">
+      <tr>
+        <td class="nb"><strong>NB</strong></td>
+        <td class="nb-text">Bien vouloir consulter son agenda ! Pour<br />
+          connaître les dates des prochains rendez-vous<br />
+          Le prochain est prévu le:{{item.rdv_datedebut}}</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div *ngIf="showOneConsul">
+    <div class="jumbotron text-center">
+      <div class="table-responsive">
+        <h2 text-center="100px">Consultation éffectué le:<strong>{{item.consul_datecreate}}</strong> </h2>
+        <p><strong>Lieu</strong>: {{item.lieu}} </p>
+        <p><strong>Médecin</strong>: {{item.nom_medecin}} </p>
+        <section id="tab-recap">
+
+          <div class="container-fluid">
+
+
+            <div class="row">
+              <div class="images col col-33"></div>
+              <div class="one-image-dev col col-33 col-center">
+                <img src="{{server + item.image}}" alt="">
+              </div>
+              <div class="col col-33"></div>
+            </div>
+
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+<!--    <table class="float-right nb-tab">
+      <tr>
+        <td class="nb"><strong>NB</strong></td>
+        <td class="nb-text">Bien vouloir consulter son agenda ! Pour<br />
+          connaître les dates des prochains rendez-vous<br />
+          Le prochain est prévu le:{{item.rdv_datedebut}}</td>
+      </tr>
+    </table>-->
+  </div>
+
+
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,107 @@
+
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding #pageContent fullscreen>
+  <ion-list no-line>
+
+    <ion-item>
+      <ion-label floating>Date du jour</ion-label>
+      <ion-input round type="datetime-local" placeholder="Date du jour" name="datedebut" #datedebut></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nature</ion-label>
+      <ion-select [(ngModel)]="natureText" name="nature" #nature>
+        <ion-option value="vaccinations">Vaccinations</ion-option>
+        <ion-option value="RDV médical">RDV médical</ion-option>
+        <ion-option value="Achat médicament">Achat médicament</ion-option>
+        <ion-option value="Prise médicaments">Prise médicaments</ion-option>
+        <ion-option value="Réalisation check Up">Réalisation check Up</ion-option>
+        <ion-option value="Examens à réaliser">Examens à réaliser</ion-option>
+        <ion-option value="Deparasitage">Deparasitage</ion-option>
+        <ion-option value="Prise de complément alimentaire">Prise de complément alimentaire</ion-option>
+        <ion-option value="Régime">Régime</ion-option>
+        <ion-option value="acte de naissance">acte de naissance</ion-option>
+        <ion-option value="PCV">PCV</ion-option>
+        <ion-option value="check Up dentiste">check Up dentiste</ion-option>
+        <ion-option value="RDV dentiste">RDV dentiste</ion-option>
+        <ion-option value="RDV ophtalmo">RDV ophtalmo</ion-option>
+        <ion-option value="Acte de naissance">Acte de naissance</ion-option>
+        <ion-option value="Autres">Autres</ion-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Lieu" name="lieu" #lieu></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Observation" name="observation" #observation></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Tiers" name="tiers" #tiers></ion-input>
+      </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Cout" name="cout" #cout></ion-input>
+    </ion-item>
+
+      <ion-item>
+        <ion-label floating>Date de réalisation</ion-label>
+        <ion-input round type="datetime-local" placeholder="Date de réalisation" name="datefin" #datefin></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Choisissez autres date de rappel  </ion-label>
+        <ion-input round type="datetime-local" placeholder="Date de réalisation" name="datefin1" #datefin1></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input round type="datetime-local" placeholder="Date de réalisation" name="datefin2" #datefin2></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input round type="datetime-local" placeholder="Date de réalisation" name="datefin3" #datefin3></ion-input>
+      </ion-item>
+
+
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button  round outline block (click)="Ajouter()">Ajouter</button>
+  </div>
+</ion-content>
+<!--<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>-->

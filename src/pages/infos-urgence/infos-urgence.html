@@ -1,0 +1,214 @@
+
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>infos d'urgence</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding #pageContent fullscreen>
+
+  <div *ngIf="show">
+    <div class="jumbotron text-center">
+      <div class="table-responsive">
+        <section id="tab-recap">
+          <div class="container-fluid">
+            <table class="table" border=3>
+              <tr *ngFor="let item of items">
+                <td>NOM & PRENOM</td>
+                <td>{{item.nom}} &nbsp; {{item.prenom}}</td>
+                <td>Tel</td>
+                <td>{{item.telephone}}</td>
+                <td>Email</td>
+                <td>{{item.email}}</td>
+                <td><strong>Ne(e) le</strong></td>
+                <td>{{item.anneeNais}}</td>
+                <td><strong>Lieu de Naissance</strong></td>
+                <td>{{item.lieuNais}}</td>
+              </tr>
+            </table>
+            <table class="table" border=3>
+              <tr *ngFor="let item of items">
+              <td>Profession:{{item.profession}}</td>
+                <td>Lieu de Service:<strong>{{item.lieuService}}</strong></td>
+                <td>Residence Principal:<strong>{{item.residencePrincipal}}</strong></td>
+                <td>Tel Bureau:{{item.telBureau}}</td>
+              </tr>
+            </table>
+            <table class="table" border=3>
+              <tr *ngFor="let item of items">
+                <td>Nom du Père:<strong>{{item.nomPere}}</strong></td>
+                <td>Telephone:{{item.telPere}}</td>
+                <td>Profession:<strong>{{item.professionPere}}</strong></td>
+                <td>Email:{{item.emailPere}}</td>
+                <td>Quartier: {{item.quartierPere}}</td>
+                <td>Rue: {{item.ruePere}}</td>
+              </tr>
+            </table>
+            <table class="table" border=3>
+              <tr *ngFor="let item of items">
+                <td>Nom de la Mère:<strong>{{item.nomMere}}</strong></td>
+                <td>Telephone:{{item.telMere}}</td>
+                <td>Profession:<strong>{{item.professionMere}}</strong></td>
+                <td>Email:{{item.emailMere}}</td>
+                <td>Quartier: {{item.quartierMere}}</td>
+                <td>Rue: {{item.rueMere}}</td>
+              </tr>
+            </table>
+            <table class="table" border=3>
+              <tr *ngFor="let item of items">
+                <td><strong>Groupe Sanguin: </strong>{{item.professionMere}}</td>
+                <td><strong>Allergie:</strong>{{item.allergie}}</td>
+                <td><strong>Incapacite:</strong>{{item.incapacite}}</td>
+                <td><strong>Medecin de la Famille:</strong>{{item.medecinFamille}}</td>
+                <td><strong>assurance:</strong>{{item.assurance}}</td>
+                <td><strong>rhesus: </strong>{{item.rhesus}}</td>
+                <td><strong>Observation Physique: </strong>{{item.observationPhisyque}}</td>
+                <td><strong>Signe Particulier:</strong>{{item.signeParticulier}}</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <h2 text-center="100px"><strong>Maladie chronique</strong> </h2>
+    <section id="notes">
+      <div class="table-responsive">
+        <table id="tab-head" border=1>
+          <tr>
+            <td class="title-cel coloured-cel">Maladie</td>
+            <td class="title-cel">Médecin Traitant</td>
+            <td class="title-cel coloured-cel">restriction</td>
+            <td class="title-cel">recommandation</td>
+            <td class="title-cel coloured-cel">commentaire</td>
+          </tr>
+          <!-- Groupe 1 -->
+          <tr *ngFor="let mal of maladie">
+            <td class="coloured-cel">{{mal.nom}}</td>
+            <td>{{mal.medecin_traitant}}</td>
+            <td class="coloured-cel">{{mal.restriction}}</td>
+            <td>{{mal.recommandation}}</td>
+            <td class="coloured-cel">{{mal.commentaire}}</td>
+          </tr>
+          <!-- Groupe 1 -->
+
+        </table>
+
+      </div>
+    </section>
+
+    <table class="float-right nb-tab">
+      <tr>
+        <td class="nb"><strong>NB</strong></td>
+        <td class="nb-text">Bien vouloir consulter son agenda ! Pour<br />
+          connaître les dates des prochains rendez-vous<br />
+          Le prochain est prévu le:</td>
+      </tr>
+    </table>
+  </div>
+
+  <div >
+
+    <button ion-button  round outline block (click)="Edit()">Inserez vos information d'urgence</button>
+    <!--
+        <ion-icon name="create"></ion-icon>
+    -->
+  </div>
+
+  <div *ngIf="update">
+    <ion-list>
+
+      <ion-item>
+        <img src="{{base64Image}}" title="pict">
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Sexe</ion-label>
+        <ion-select [(ngModel)]="sexe">
+          <ion-option value="Male">Male</ion-option>
+        <ion-option value="Female">Female</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+     <ion-item>
+       <ion-label fixed>Groupe Sanguin</ion-label>
+       <ion-input type="text" class="ion-input" [(ngModel)]="groupeSanguin"></ion-input>
+     </ion-item>
+
+     <ion-item>
+      <ion-label fixed>Allergie</ion-label>
+      <ion-input type="text" class="ion-input" [(ngModel)]="allergie"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Incapacite</ion-label>
+      <ion-input type="text" class="ion-input" [(ngModel)]="incapacite"></ion-input>
+    </ion-item>
+
+    <ion-item>
+     <ion-label fixed>Médecin de la Famille  </ion-label>
+     <ion-input type="text" class="ion-input" [(ngModel)]="medecinFamille"></ion-input>
+   </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Assurance</ion-label>
+      <ion-input type="text" class="ion-input" [(ngModel)]="assurance"></ion-input>
+    </ion-item>
+
+      <ion-item>
+      <ion-label fixed>Votre rhesus</ion-label>
+      <ion-input type="text" class="ion-input" [(ngModel)]="rhesus"></ion-input>
+    </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Signe Particulier</ion-label>
+        <ion-input type="text" class="ion-input" [(ngModel)]="signeParticulier"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      <ion-label fixed>Observation Phisyque</ion-label>
+      <ion-input type="text" class="ion-input" [(ngModel)]="observationPhisyque"></ion-input>
+      </ion-item>
+
+    <div>
+      <button ion-button color="primary" block (click)="presentActionSheet()">Take picture</button>
+    </div>
+
+    <div>
+      <button ion-button color="danger" block (click)="add()">Submit</button>
+    </div>
+   </ion-list>
+  </div>
+
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

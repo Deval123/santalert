@@ -1,0 +1,100 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Parametres</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding #pageContent fullscreen>
+
+  <div padding *ngIf="show">
+    <button ion-button  round outline block (click)="notification()">Notification</button>
+  </div>
+
+  <div padding *ngIf="show">
+    <button ion-button  round outline block (click)="apropos()">A propos</button>
+  </div>
+
+  <div padding *ngIf="show">
+    <button ion-button  round outline block (click)="logout()">Déconnexion</button>
+  </div>
+
+  <div id="menuTopContainer" *ngIf="apropo"><ul id="menuTop">
+    <div id="content">
+      <div>
+        <div class="classicContent">
+          <div class="column">
+            <h3>Qu’est-ce que Sant'alert ?</h3>
+            <h2><img class="pres" src="assets/imgs/Santlogo.png" /></h2>
+            <p><strong>Sant'alert </strong>
+              Le compagnon fidèle pour votre suivi médical </p>
+            <h4>CHERS PUBLIQUES </h4>
+            <p>SANT‛ALERT consigne toutes les informations sur vos consultations, ordonnances, examens pour une exploitation future par le corps
+              médical aux fins d‛assurer un meilleur suivi et réduire les coûts de reprise d‛examen et autres .formation, et qui vous
+              seront automatiquement destinés, sur les aspects suivants :
+            </p>
+            <ul>
+              <li>CONSULTATIONS,ORDONNANCES, EXAMENS,ETC…</li>
+              <li>ALERTES VACCINS</li>
+              <li>ALERTES DEPARASITAGE</li>
+              <li>ALERTES RDV MEDICAUX</li>
+              <li> ALERTES PRISE DEMEDICAMENTS ET SOINS</li>
+            </ul>
+            <p>Alertes pour :</p>
+            <h4>nouveaux-nés  nouveaux-nés Enfants et Adultes</h4>
+            <ul>
+
+              <li>Vos rdv médicaux avec votre médecin traitant</li>
+              <li>Vos programmes de vaccination</li>
+              <li>Vos dates de renouvellement d‛ordonnance</li>
+              <li>Vos jours et heures de prise de soins</li>
+              <li>Tout autre aspect lié à la souvenance de votre suivi médical dates de visites</li>
+              <li> Rv de consultations les programmes de vaccination</li>
+
+            </ul>
+          </div>
+          <div class="column">
+            <h3>SANT‛ALERT</h3><p>
+            <img class="pres" src="#####">
+            <h4>met à disposition vos informations banquées en un clic sur</h4>
+            <ul>
+              <li>Le groupe sanguin et rhésus</li>
+              <li>Allergies alimentaires et médicamenteuses</li>
+              <li>Examens</li>
+              <li>la fiabilité des informations qui s'y trouve,</li>
+            </ul>
+
+          </div></div>
+
+      </div></div></ul></div>
+
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,85 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Informations Généreaux Du Patient</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding #pageContent fullscreen>
+  <div id="menuTopContainer" ><ul id="menuTop">
+    <div id="content">
+      <div>
+        <div class="classicContent">
+          <div *ngFor="let item of items">
+
+              <div class="column" >
+                  <div class=" images one-image" >
+                      <h2><img class="pres" src="{{server + item.filename}}" /></h2>
+                  </div>
+
+
+                  <p>Nom: &nbsp; {{item.nom}}, &nbsp; &nbsp; Prenom: &nbsp; {{item.prenom}}, &nbsp; Sexe: &nbsp; {{item.sexe}}.</p>
+                  <p>Né (e) le: &nbsp; {{item.anneeNais}}, &nbsp; &nbsp; A: &nbsp; {{item.lieuNais}}.</p>
+                  <p>Profession : &nbsp; {{item.profession}}, &nbsp; &nbsp; Emploi A: &nbsp; {{item.lieuService}}.</p>
+                  <p>Tél : &nbsp; {{item.telephone}}, &nbsp; &nbsp; Tél bureau : &nbsp; {{item.telephone1}}.</p>
+                  <p>Adresse e-mail principal: &nbsp; {{item.email}}, &nbsp; &nbsp; Adresse e-mail secondaire: &nbsp; {{item.email1}}.</p>
+                  <p>Lieu de Résidence principal: &nbsp; {{item.residencePrincipal}}, &nbsp; &nbsp; Lieux de Résidence secondaire: &nbsp; {{item.residenceSecondaire}}.</p>
+
+                  <h4>FILIATION DES PARENTS</h4>
+                  <p>Père: &nbsp; {{item.pere}}, &nbsp; &nbsp; Tél: &nbsp; {{item.telPere}}, &nbsp; &nbsp; e-mail: &nbsp; {{item.emailPere}}, &nbsp; &nbsp; Profession: &nbsp; {{item.professionPere}}, &nbsp; &nbsp;e-mail: &nbsp; {{item.ruePere}}.</p>
+                  <p>Père: &nbsp; {{item.mere}}, &nbsp; &nbsp; Tél: &nbsp; {{item.telMere}}, &nbsp; &nbsp; e-mail: &nbsp; {{item.emailMere}}, &nbsp; &nbsp; Profession: &nbsp; {{item.professionMere}}, &nbsp; &nbsp;e-mail: &nbsp;  {{item.rueMere}}.</p>
+
+                </div>
+                <div class="column">
+                  <h3>INFORMATIONS D’URGENCE</h3><p>
+                  <ul>
+                    <li>Groupe sanguin : &nbsp; {{item.groupeSanguin}}</li>
+                    <li>Incapacité :&nbsp; {{item.incapacite}}</li>
+                    <li>Médecin de famille :&nbsp; {{item.medecinFamille}}</li>
+                    <li>Assurance :&nbsp; {{item.assurance}}</li>
+
+                    <li>Hôpital de reférence :&nbsp; {{item.telMere}}</li>
+                    <li>Rhésus :&nbsp; {{item.rhesus}}</li>
+                    <li>Observation physique :&nbsp; {{item.observationPhisyque}}</li>
+                    <li>Signe particulier :&nbsp; {{item.signeParticulier}}</li>
+                  </ul>
+
+                </div>
+
+          </div>
+
+        </div>
+
+      </div></div></ul></div>
+
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,66 @@
+
+<ion-content padding padding #pageContent fullscreen>
+
+  <ion-list no-line>
+
+    <ion-item>#pageContent fullscreen
+      <ion-label floating>Date du jour</ion-label>
+      <ion-input id="newdateParam" round type="datetime-local" name= "newdateParam" #newdateParam [(ngModel)]="dateParam"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>poids</ion-label>
+      <ion-input id="newpoids" type="text" name= "newpoids" #newpoids [(ngModel)]="poids"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>temperature</ion-label>
+      <ion-input id="newtemperature" type="text" name= "newtemperature" #newtemperature [(ngModel)]="temperature"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>tension</ion-label>
+      <ion-input id="newtension" type="text" name= "newtension" #newtension [(ngModel)]="tension"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Observation</ion-label>
+      <ion-input id="newobservation" type="text" name= "newobservation" #newobservation [(ngModel)]="observation"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div >
+
+    <button ion-button  round outline block (click)="Edit()">Update</button>
+    <!--
+        <ion-icon name="create"></ion-icon>
+    -->
+  </div>
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

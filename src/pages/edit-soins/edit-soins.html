@@ -1,0 +1,108 @@
+<ion-content padding #pageContent fullscreen>
+
+  <ion-list no-line>
+<!--
+    //datecreate	symtome	traitement	evaluation	observation	cout_traitement	patients_id
+-->
+
+    <ion-item>
+      <ion-label floating>Date du jour</ion-label>
+      <ion-input id="newdatecreate" round type="datetime-local" name= "newdatecreate" #newdatecreate [(ngModel)]="datecreate"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Symtome</ion-label>
+      <ion-input id="newsymtome" type="text" name= "newsymtome" #newsymtome [(ngModel)]="symtome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Traitement</ion-label>
+      <ion-input id="newtraitement" type="text" name= "newtraitement" #newtraitement [(ngModel)]="traitement"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Evaluation</ion-label>
+      <ion-input id="newevaluation" type="text" name= "newevaluation" #newevaluation [(ngModel)]="evaluation"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Observation</ion-label>
+      <ion-input id="newobservation" type="text" name= "newobservation" #newobservation [(ngModel)]="observation"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Cout_traitement</ion-label>
+      <ion-input id="newcout_traitement" type="text" name= "newcout_traitement" #newcout_traitement [(ngModel)]="cout_traitement"></ion-input>
+    </ion-item>
+
+
+
+  </ion-list>
+
+  <div >
+
+    <button ion-button  round outline block (click)="Edit()">Update</button>
+<!--
+    <ion-icon name="create"></ion-icon>
+-->
+  </div>
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

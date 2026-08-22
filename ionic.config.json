@@ -1,0 +1,14 @@
+{
+  "name": "santalert",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://localhost/PHP-Slim-Restful/api"
+    }
+  ],
+  "id": "santalert123"
+}

@@ -1,0 +1,1769 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Suivi Mère & Enfants</ion-title>
+<!--    <button   id="right" ion-button (click)="goToparam()">
+      <ion-icon name="settings"></ion-icon>
+    </button>-->
+  </ion-navbar>
+
+</ion-header>
+
+<!--<ion-content padding>
+<h2> Période Périnatale</h2>
+  <div class="row ">
+    <div class="row col-md-6">
+      <form class="col-lg-auto">
+      <ion-item>
+        <ion-input type="text" placeholder="Nom de la mère" name="nom_mere" #nom_mere></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" name="prenom_mere" placeholder="Prénom de la mère" #prenom_mere></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input round type="datetime-local" placeholder="Date de naissance de la mère" name="dateNaisMere" #dateNaisMere></ion-input>
+      </ion-item>
+      </form>
+    </div>
+
+    <div class="row col-md-6">
+      <form class="col-lg-auto">
+      <ion-item>
+        <ion-input type="text" placeholder="Nom du père" name="nom_pere" #nom_pere></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Prénom du père" name="prenom_pere" #prenom_pere></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input round type="datetime-local" placeholder="Date de naissance du père" name="dateNaisPere" #dateNaisPere></ion-input>
+      </ion-item>
+      </form>
+    </div>
+  </div>
+  <div class="row col-md-12">
+    <ion-item>
+      <ion-input type="text" placeholder="Parité" name="parite" #parite></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Groupe sanguin et facteur rhésus de la mère" name="grpeSanguinRhesus" #grpeSanguinRhesus></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Taux des agglutines irréguliers" name="taux_ireg" #taux_ireg></ion-input>
+    </ion-item>
+    <ion-list class="row col-md-12">
+      <h2 class="col-md-2">Sérologie</h2>
+      <h2 class="col-md-4">Date du dernier contrôle</h2>
+      <h2 class="col-md-4">Résultat</h2>
+    </ion-list>
+    <ion-list class="row col-md-12">
+      <h3 class="col-md-2">Toxoplasmose</h3>
+      <ion-item class="col-md-4">
+        <ion-input type="datetime-local" name="Toxoplasmose" #Toxoplasmose></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>négatif</ion-label>
+        <ion-checkbox [(ngModel)]="negatif3"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>positif</ion-label>
+        <ion-checkbox [(ngModel)]="positif3"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>inconu</ion-label>
+        <ion-checkbox [(ngModel)]="inconu3"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-list class="row col-md-12">
+      <h3 class="col-md-2">Rubéole</h3>
+      <ion-item class="col-md-4">
+        <ion-input type="datetime-local" name="Toxoplasmose" #Toxoplasmose></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>négatif</ion-label>
+        <ion-checkbox [(ngModel)]="negatif1"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>positif</ion-label>
+        <ion-checkbox [(ngModel)]="positif1"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>inconu</ion-label>
+        <ion-checkbox [(ngModel)]="inconu1"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-list class="row col-md-12">
+      <h3 class="col-md-2">Antigène HBs</h3>
+      <ion-item class="col-md-4">
+        <ion-input type="datetime-local" name="Toxoplasmose" #Toxoplasmose></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>négatif</ion-label>
+        <ion-checkbox [(ngModel)]="negatif2"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>positif</ion-label>
+        <ion-checkbox [(ngModel)]="positif2"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>inconu</ion-label>
+        <ion-checkbox [(ngModel)]="inconu2"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-textarea placeholder="Autre" name="prenom_pere" #prenom_pere></ion-textarea>
+    </ion-item>
+  </div>
+ <ion-list class="row col-md-12">
+   <h4 class="col-md-8">Au cours de la grossesse, est-ce que la mère a pris des médicaments en dehors des suppléments usuels?</h4>
+   <ion-item class="col-md-2">
+     <ion-label>oui</ion-label>
+     <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+   </ion-item>
+   <ion-item class="col-md-2">
+     <ion-label>non</ion-label>
+     <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+   </ion-item>
+ </ion-list>
+  <h5>Echographie anténatales, anomalie décélés, contrôles à prévoir</h5>
+  <ion-item>
+    <ion-textarea placeholder="Echographie anténatales, anomalie décélés, contrôles à prévoir" name="Aut" #Aut></ion-textarea>
+  </ion-item>
+</ion-content>-->
+<!--<ion-content padding>
+  <h4><strong> Examen clinique</strong></h4>
+    <div class="row">
+      <h5 class="col-md-1">fréquence cardiaque au repos</h5>
+      <ion-item class="col-md-1">
+        <ion-input type="text" name="frequenceCard" #frequenceCard></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-1">fréquence cardiaque au repos</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">fréquence respiratoire au repos</h5>
+      <ion-item class="col-md-1">
+        <ion-input type="text" name="frequenceResp" #frequenceResp></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-1">Vigilance normale</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-2">Soufle cardiaque</h5>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-1">Réaction au stimulli source</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">Hépathomégalie</h5>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-2">Tonus axial normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">Splénomégalie</h5>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-2">Tonus des menbres normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">Hernie inguinal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-2">Mobilité normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">actère</h5>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-2">fasse lombrale libre</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-3">si oui taux maximun de </h5>
+      <ion-item class="col-md-2">
+        <ion-input type="text" name="frequenceCard" #frequenceCard></ion-input>
+      </ion-item>
+
+      <h5 class="col-md-2">hanche droite normale</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-5"></h5>
+      <h5 class="col-md-2">hanche gauche normale</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-3">Organe génitaux</h5>
+      <ion-item class="col-md-2">
+        <ion-input type="text" name="OrganeGenitaux" #OrganeGenitaux></ion-input>
+      </ion-item>
+      <h5 class="col-md-2">pied droit normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-5"></h5>
+
+      <h5 class="col-md-2">pied gauche normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+  <ion-item>
+    <ion-textarea placeholder="Echographie anténatales, anomalie décélés, contrôles à prévoir" name="Aut" #Aut></ion-textarea>
+  </ion-item>
+    <div class="row ">
+      <h4 class="col-md-6">Examens ophtamologique</h4>
+      <h4 class="col-md-6">Dépistage d'une déficience auditive</h4>
+    </div>
+  <div class="row col-md-12">
+    <div class="row col-md-6">
+      <h5 class="col-md-6">Globe oculaire de taille normal</h5>
+      <ion-item class="col-md-3">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-3">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row col-md-6">
+      <h5 class="col-md-6"></h5>
+      <ion-item class="col-md-3">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-3">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="row col-md-12">
+    <div class="row col-md-6">
+      <h5 class="col-md-6">Cornées transparentes</h5>
+      <ion-item class="col-md-3">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-3">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row col-md-6">
+      <h5 class="col-md-6">Méthode</h5>
+      <ion-item class="col-md-3">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-3">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+  <div class="row col-md-12">
+    <div class="row col-md-6">
+      <h5 class="col-md-6">Pupilles normales</h5>
+      <ion-item class="col-md-3">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-3">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row col-md-6">
+      <h5 class="col-md-6">Résultat</h5>
+      <ion-item class="col-md-3">
+        <ion-label>normal</ion-label>
+        <ion-checkbox [(ngModel)]="normal"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-3">
+        <ion-label>A surveiller</ion-label>
+        <ion-checkbox [(ngModel)]="surveiller"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+  <div class="row col-md-12">
+    <div class="row col-md-6">
+      <h5 class="col-md-6">Lueurs pupillaires présentes</h5>
+      <ion-item class="col-md-3">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-3">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row col-md-6">
+      <h5 class="col-md-6">Méthode</h5>
+      <ion-item class="col-md-3">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-3">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+  <div class="row ">
+    <h4 class="col-md-6"> <strong> Les examens biologique de dépistages</strong></h4>
+    <div class="row col-md-12">
+        <h5 class="col-md-4">Dépistage de la phénylcétonuie hyperphasie congénitale suvefd et hypotyroide</h5>
+        <ion-item class="col-md-2">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-2">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+    </div>
+    <div class="row col-md-12">
+      <h5 class="col-md-4">Dépistage drépanocytose</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <h4 class="col-md-4">Dépistage de la mucovicidose</h4>
+    <div class="row col-md-12">
+      <h5 class="col-md-1"></h5>
+      <h5 class="col-md-4">Consentement des parents receuilli</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row col-md-12">
+      <h5 class="col-md-1"></h5>
+      <h5 class="col-md-4">Test éffectué</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row col-md-12">
+    <h5 class="col-md-2">Autre dépistage biologique</h5>
+    <ion-item class="col-md-10">
+      <ion-textarea placeholder="Autre dépistage biologique" name="autdepistage" #autdepistage></ion-textarea>
+    </ion-item>
+    </div>
+
+    <h4 class="col-md-4">Prélèvement éffectué par:</h4>
+    <ion-row col-12>
+    <ion-row col-12>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label style="color: black; background-color: #dddddd;"  fixed>NOM</ion-label>
+          <ion-input type="text" [(ngModel)]="nomPre" placeholder="{{nom}}" > </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label style="color: black; background-color: #dddddd;"  fixed>Qualification</ion-label>
+          <ion-input type="text" [(ngModel)]="qualification" placeholder="{{Qualification}}" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row col-12>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label style="color: black; background-color: #dddddd;"  floating>Lieu </ion-label>
+          <ion-input type="text" [(ngModel)]="lieu_pre" placeholder="{{A}}" ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label style="color: black; background-color: #dddddd;"  floating>Date</ion-label>
+          <ion-datetime type="Date" [(ngModel)]="date_pre" placeholder="{{Le}}" ></ion-datetime>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+    </ion-row>
+  </div>
+</ion-content>-->
+<!--<ion-content padding>
+  <h2><strong>Accouchement</strong></h2>
+  <ion-row>
+    <ion-col col-6>
+      <ion-item >
+        <ion-label  style="color: black; background-color: #dddddd;"  fixed="">Date de naissance</ion-label>
+        <ion-input type="Date" [(ngModel)]="date_nais_acc"  > </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label col-6 style="color: black; background-color: #dddddd;"  fixed="">Heure de naissance</ion-label>
+        <ion-input type="time" [(ngModel)]="heure_nais"  > </ion-input>
+      </ion-item>
+    </ion-col>
+
+
+    <ion-col col-12>
+      <ion-item>
+        <ion-label col-6 style="color: black; background-color: #dddddd;" fixed="">Lieu de naissance (nom de
+          l'établissement et adresse)
+        </ion-label>
+        <ion-textarea placeholder="nom de l'établissement et adresse" [(ngModel)]="nom_ets_add"></ion-textarea>
+      </ion-item>
+    </ion-col>
+
+    <ion-col col-3>
+      <ion-item>
+        <ion-label col-6 style="color: black; background-color: #dddddd;" floating>Age gestationnel(en semaine)
+        </ion-label>
+        <ion-input type="number" [(ngModel)]="Age_gestationnel"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-row col-12>
+      <ion-row col-10>
+        <div class="col-md-1">
+        </div>
+        <h4 class="col-md-2">Présentation</h4>
+          <ion-item col-3>
+          <ion-checkbox [(ngModel)]="Sommet"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;"  >Sommet</ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="siege"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;" >Siège</ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="autre"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;" >Autre</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+    <ion-row col-12>
+      <ion-row col-10>
+        <div class="col-md-1">
+        </div>
+        <h4 class="col-md-2">Début du travail:</h4>
+        <ion-item col-3>
+          <ion-checkbox [(ngModel)]="Spontanne"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;"  >Spontanné</ion-label>
+        </ion-item>
+        <ion-item col-3>
+          <ion-checkbox [(ngModel)]="declenche"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;" >déclenche</ion-label>
+        </ion-item>
+        <ion-item col-3>
+          <ion-checkbox [(ngModel)]="cesarienneAvantTravail"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;" >Césarienne avant travail</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+
+    <ion-row col-12>
+      <ion-row col-10>
+        <div class="col-md-1">
+        </div>
+        <h4 class="col-md-4">Rupture menbranaire plus de 12h avant l'accouchement:</h4>
+        <ion-item col-3>
+          <ion-checkbox [(ngModel)]="Oui"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;"  >Oui</ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;" >NON</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+
+
+    <ion-row col-12>
+      <ion-row col-10>
+        <div class="col-md-1">
+        </div>
+        <h5 class="col-md-1">Analgésie</h5>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="aucune"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;"  >aucune</ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="general"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;" >général</ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="peridurale"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;" >aucune</ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="rachianesthesie"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;" >rachianesthesie</ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="autre"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;" >autre</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+
+    <ion-row col-12>
+      <ion-row col-10>
+        <div class="col-md-1">
+        </div>
+        <h5 class="col-md-2">Naissance par :</h5>
+        <ion-item col-4>
+          <ion-checkbox [(ngModel)]="voieBasseNonInstrumentale"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">voie basse non instrumentale</ion-label>
+        </ion-item>
+        <ion-item col-4>
+          <ion-checkbox [(ngModel)]="extractionVoieBasseInstrumentale"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">extraction voie basse instrumentale</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+    <ion-row col-12>
+      <ion-row col-10>
+        <div class="col-md-1">
+        </div>
+        <h5 class="col-md-2"></h5>
+        <ion-item col-4>
+          <ion-checkbox [(ngModel)]="cesarienneProgramme"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">Césarienne programmée</ion-label>
+        </ion-item>
+        <ion-item col-4>
+          <ion-checkbox [(ngModel)]="cesarienneNonProgramme"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">Césarienne non programmée</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+
+    <ion-row col-12>
+      <ion-row col-10>
+        <div class="col-md-1">
+        </div>
+        <h5 class="col-md-2">En cas de césarienne, quelle indication?</h5>
+        <ion-item col-4>
+          <ion-checkbox [(ngModel)]="causeFoetale"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">Cause maternelle</ion-label>
+        </ion-item>
+        <ion-item col-4>
+          <ion-checkbox [(ngModel)]="cesarienneNonProgramme"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">Cause foetale</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+
+
+    <ion-row col-12>
+      <ion-row col-10>
+        <div class="col-md-1">
+        </div>
+        <h5 class="col-md-2">Couleur du liquide amiotique</h5>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="claire"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">Claire</ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="teinte"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">Teinté </ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="meconiale"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">Méconiale </ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="autre"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">Autre </ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+    <ion-row col-12>
+      <ion-row col-10>
+        <div class="col-md-1">
+        </div>
+        <h5 class="col-md-2">Fièvre maternelle</h5>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">OUI</ion-label>
+        </ion-item>
+        <ion-item col-2>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+          <ion-label style="color: black; background-color: #dddddd;">NON</ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+      </ion-row>
+  <h3><strong>Examen de l'enfant à la naissance </strong></h3>
+
+  <ion-row col-md-12>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">Poids</ion-label>
+      <ion-input type="float"></ion-input>
+    </ion-item>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">Taille</ion-label>
+      <ion-input type="float"></ion-input>
+    </ion-item>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">PC</ion-label>
+      <ion-input type="float">cm</ion-input>
+    </ion-item>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">Apgar à 1 minute</ion-label>
+      <ion-input type="float"></ion-input>
+    </ion-item>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">Apgar à 5 minute</ion-label>
+      <ion-input type="float">cm</ion-input>
+    </ion-item>
+  </ion-row>
+  <h5><strong>L'etat de l'enfant a-t-il nécéssité des gestes techniques spétialisés?</strong></h5>
+  <ion-row col-md-12>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">NON</ion-label>
+      <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+    </ion-item>
+    <ion-item col-8>
+      <ion-label style="color: black; background-color: #dddddd;">OUI</ion-label>
+      <ion-textarea placeholder="precisé les gestes techniques spétialisés" [(ngModel)]="gestTech"></ion-textarea>
+    </ion-item>
+  </ion-row>
+
+  <ion-row col-md-12>
+    <div class="col-md-1"></div>
+    <h5 col-md-2>Transfert?</h5>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">NON</ion-label>
+      <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+    </ion-item>
+    <ion-item col-7>
+      <ion-label style="color: black; background-color: #dddddd;">OUI</ion-label>
+      <ion-textarea placeholder="Si oui lieu du transfert (service et adresse)"
+                    [(ngModel)]="serviceLieu"></ion-textarea>
+    </ion-item>
+  </ion-row>
+
+  <ion-row col-md-12>
+    <div class="col-md-1"></div>
+    <h5 col-md-2><strong> Soins et geste pratiqué</strong></h5>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">Vitamine K</ion-label>
+      <ion-checkbox [(ngModel)]="VitamineK"></ion-checkbox>
+    </ion-item>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">Collyre</ion-label>
+      <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+    </ion-item>
+  </ion-row>
+
+  <ion-row col-md-12>
+    <div class="col-md-1"></div>
+    <h5 col-md-2><strong>perméabilité</strong></h5>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">des chorale</ion-label>
+      <ion-checkbox [(ngModel)]="chorale"></ion-checkbox>
+    </ion-item>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">de l'osoephage</ion-label>
+      <ion-checkbox [(ngModel)]="osoephage"></ion-checkbox>
+    </ion-item>
+    <ion-item col-2>
+      <ion-label style="color: black; background-color: #dddddd;">de l'annus</ion-label>
+      <ion-checkbox [(ngModel)]="annus"></ion-checkbox>
+    </ion-item>
+  </ion-row>
+  <ion-item col-10>
+    <ion-label style="color: black; background-color: #dddddd;">Autre renseignements</ion-label>
+    <ion-textarea placeholder="Autre renseignements"
+                  [(ngModel)]="renseignements"></ion-textarea>
+  </ion-item>
+</ion-content>-->
+<ion-content padding #pageContent fullscreen>
+  <div *ngIf="periode">
+    <button ion-button  round outline block   (click)="suiviGrossesse()">Suivi grossesse </button>
+    <button ion-button  round outline block   (click)="Accouchement()">Accouchement </button>
+
+  </div>
+
+
+
+  <div *ngIf="periode1">
+<h2> Période Périnatale</h2>
+  <div class="row ">
+    <div class="row col-md-6">
+      <form class="col-lg-auto">
+      <ion-item>
+        <ion-input type="text" placeholder="Nom de la mère" name="nom_mere" #nom_mere></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" name="prenom_mere" placeholder="Prénom de la mère" #prenom_mere></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input round type="datetime-local" placeholder="Date de naissance de la mère" name="dateNaisMere" #dateNaisMere></ion-input>
+      </ion-item>
+      </form>
+    </div>
+
+    <div class="row col-md-6">
+      <form class="col-lg-auto">
+      <ion-item>
+        <ion-input type="text" placeholder="Nom du père" name="nom_pere" #nom_pere></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Prénom du père" name="prenom_pere" #prenom_pere></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input round type="datetime-local" placeholder="Date de naissance du père" name="dateNaisPere" #dateNaisPere></ion-input>
+      </ion-item>
+      </form>
+    </div>
+  </div>
+  <div class="row col-md-12">
+    <ion-item>
+      <ion-input type="text" placeholder="Parité" name="parite" #parite></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Groupe sanguin et facteur rhésus de la mère" name="grpeSanguinRhesus" #grpeSanguinRhesus></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Taux des agglutines irréguliers" name="taux_ireg" #taux_ireg></ion-input>
+    </ion-item>
+    <ion-list class="row col-md-12">
+      <h2 class="col-md-2">Sérologie</h2>
+      <h2 class="col-md-4">Date du dernier contrôle</h2>
+      <h2 class="col-md-4">Résultat</h2>
+    </ion-list>
+    <ion-list class="row col-md-12">
+      <h3 class="col-md-2">Toxoplasmose</h3>
+      <ion-item class="col-md-4">
+        <ion-input type="datetime-local" name="Toxoplasmose" #Toxoplasmose></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>négatif</ion-label>
+        <ion-checkbox [(ngModel)]="negatif3"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>positif</ion-label>
+        <ion-checkbox [(ngModel)]="positif3"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>inconu</ion-label>
+        <ion-checkbox [(ngModel)]="inconu3"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-list class="row col-md-12">
+      <h3 class="col-md-2">Rubéole</h3>
+      <ion-item class="col-md-4">
+        <ion-input type="datetime-local" name="Toxoplasmose" #Toxoplasmose></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>négatif</ion-label>
+        <ion-checkbox [(ngModel)]="negatif1"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>positif</ion-label>
+        <ion-checkbox [(ngModel)]="positif1"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>inconu</ion-label>
+        <ion-checkbox [(ngModel)]="inconu1"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-list class="row col-md-12">
+      <h3 class="col-md-2">Antigène HBs</h3>
+      <ion-item class="col-md-4">
+        <ion-input type="datetime-local" name="Toxoplasmose" #Toxoplasmose></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>négatif</ion-label>
+        <ion-checkbox [(ngModel)]="negatif2"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>positif</ion-label>
+        <ion-checkbox [(ngModel)]="positif2"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>inconu</ion-label>
+        <ion-checkbox [(ngModel)]="inconu2"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-textarea placeholder="Autre" name="prenom_pere" #prenom_pere></ion-textarea>
+    </ion-item>
+  </div>
+ <ion-list class="row col-md-12">
+   <h4 class="col-md-8">Au cours de la grossesse, est-ce que la mère a pris des médicaments en dehors des suppléments usuels?</h4>
+   <ion-item class="col-md-2">
+     <ion-label>oui</ion-label>
+     <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+   </ion-item>
+   <ion-item class="col-md-2">
+     <ion-label>non</ion-label>
+     <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+   </ion-item>
+ </ion-list>
+  <h5>Echographie anténatales, anomalie décélés, contrôles à prévoir</h5>
+  <ion-item>
+    <ion-textarea placeholder="Echographie anténatales, anomalie décélés, contrôles à prévoir" name="Aut" #Aut></ion-textarea>
+  </ion-item>
+    <div class="row col-md-12">
+      <div class="row col-md-6">
+        <button ion-button  round outline block   (click)="Save()">Save </button>
+      </div>
+      <div class="row col-md-6">
+        <button ion-button round outline block  (click)="goTo1()">go To(Examen clinique)</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="periode2">
+    <h4><strong> Examen clinique</strong></h4>
+    <div class="row">
+      <h5 class="col-md-1">fréquence cardiaque au repos</h5>
+      <ion-item class="col-md-1">
+        <ion-input type="text" name="frequenceCard" #frequenceCard></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-1">fréquence cardiaque au repos</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">fréquence respiratoire au repos</h5>
+      <ion-item class="col-md-1">
+        <ion-input type="text" name="frequenceResp" #frequenceResp></ion-input>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-1">Vigilance normale</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-2">Soufle cardiaque</h5>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-1">Réaction au stimulli source</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">Hépathomégalie</h5>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-2">Tonus axial normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">Splénomégalie</h5>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-2">Tonus des menbres normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">Hernie inguinal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-2">Mobilité normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-1">actère</h5>
+      <ion-item class="col-md-2">
+        <ion-label>OUI</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <h5 class="col-md-2">fasse lombrale libre</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-3">si oui taux maximun de </h5>
+      <ion-item class="col-md-2">
+        <ion-input type="text" name="frequenceCard" #frequenceCard></ion-input>
+      </ion-item>
+
+      <h5 class="col-md-2">hanche droite normale</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-5"></h5>
+      <h5 class="col-md-2">hanche gauche normale</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-3">Organe génitaux</h5>
+      <ion-item class="col-md-2">
+        <ion-input type="text" name="OrganeGenitaux" #OrganeGenitaux></ion-input>
+      </ion-item>
+      <h5 class="col-md-2">pied droit normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div class="row">
+      <h5 class="col-md-5"></h5>
+
+      <h5 class="col-md-2">pied gauche normal</h5>
+      <ion-item class="col-md-2">
+        <ion-label>oui</ion-label>
+        <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+      </ion-item>
+      <ion-item class="col-md-2">
+        <ion-label>non</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </div>
+    <ion-item>
+      <ion-textarea placeholder="Echographie anténatales, anomalie décélés, contrôles à prévoir" name="Aut" #Aut></ion-textarea>
+    </ion-item>
+    <div class="row ">
+      <h4 class="col-md-6">Examens ophtamologique</h4>
+      <h4 class="col-md-6">Dépistage d'une déficience auditive</h4>
+    </div>
+    <div class="row col-md-12">
+      <div class="row col-md-6">
+        <h5 class="col-md-6">Globe oculaire de taille normal</h5>
+        <ion-item class="col-md-3">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-3">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+      <div class="row col-md-6">
+        <h5 class="col-md-6"></h5>
+        <ion-item class="col-md-3">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-3">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+    </div>
+
+    <div class="row col-md-12">
+      <div class="row col-md-6">
+        <h5 class="col-md-6">Cornées transparentes</h5>
+        <ion-item class="col-md-3">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-3">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+      <div class="row col-md-6">
+        <h5 class="col-md-6">Méthode</h5>
+        <ion-item class="col-md-3">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-3">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+    </div>
+    <div class="row col-md-12">
+      <div class="row col-md-6">
+        <h5 class="col-md-6">Pupilles normales</h5>
+        <ion-item class="col-md-3">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-3">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+      <div class="row col-md-6">
+        <h5 class="col-md-6">Résultat</h5>
+        <ion-item class="col-md-3">
+          <ion-label>normal</ion-label>
+          <ion-checkbox [(ngModel)]="normal"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-3">
+          <ion-label>A surveiller</ion-label>
+          <ion-checkbox [(ngModel)]="surveiller"></ion-checkbox>
+        </ion-item>
+      </div>
+    </div>
+    <div class="row col-md-12">
+      <div class="row col-md-6">
+        <h5 class="col-md-6">Lueurs pupillaires présentes</h5>
+        <ion-item class="col-md-3">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-3">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+      <div class="row col-md-6">
+        <h5 class="col-md-6">Méthode</h5>
+        <ion-item class="col-md-3">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-3">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+    </div>
+    <div class="row ">
+      <h4 class="col-md-6"> <strong> Les examens biologique de dépistages</strong></h4>
+      <div class="row col-md-12">
+        <h5 class="col-md-4">Dépistage de la phénylcétonuie hyperphasie congénitale suvefd et hypotyroide</h5>
+        <ion-item class="col-md-2">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-2">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+      <div class="row col-md-12">
+        <h5 class="col-md-4">Dépistage drépanocytose</h5>
+        <ion-item class="col-md-2">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-2">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+      <h4 class="col-md-4">Dépistage de la mucovicidose</h4>
+      <div class="row col-md-12">
+        <h5 class="col-md-1"></h5>
+        <h5 class="col-md-4">Consentement des parents receuilli</h5>
+        <ion-item class="col-md-2">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-2">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+      <div class="row col-md-12">
+        <h5 class="col-md-1"></h5>
+        <h5 class="col-md-4">Test éffectué</h5>
+        <ion-item class="col-md-2">
+          <ion-label>oui</ion-label>
+          <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+        </ion-item>
+        <ion-item class="col-md-2">
+          <ion-label>non</ion-label>
+          <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+        </ion-item>
+      </div>
+      <div class="row col-md-12">
+        <h5 class="col-md-2">Autre dépistage biologique</h5>
+        <ion-item class="col-md-10">
+          <ion-textarea placeholder="Autre dépistage biologique" name="autdepistage" #autdepistage></ion-textarea>
+        </ion-item>
+      </div>
+
+      <h4 class="col-md-4">Prélèvement éffectué par:</h4>
+      <ion-row col-12>
+        <ion-row col-12>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label style="color: black; background-color: #dddddd;"  fixed>NOM</ion-label>
+              <ion-input type="text" [(ngModel)]="nomPre" placeholder="{{nom}}" > </ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label style="color: black; background-color: #dddddd;"  fixed>Qualification</ion-label>
+              <ion-input type="text" [(ngModel)]="qualification" placeholder="{{Qualification}}" ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row col-12>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label style="color: black; background-color: #dddddd;"  floating>Lieu </ion-label>
+              <ion-input type="text" [(ngModel)]="lieu_pre" placeholder="{{A}}" ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label style="color: black; background-color: #dddddd;"  floating>Date</ion-label>
+              <ion-datetime type="Date" [(ngModel)]="date_pre" placeholder="{{Le}}" ></ion-datetime>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+      </ion-row>
+    </div>
+    <div class="row col-md-12">
+      <div class="col-md-4">
+        <button ion-button  round outline block (click)="ngOnInit()">go Back To(Période Périnatale)</button>
+      </div>
+      <div class="col-md-4">
+        <button ion-button  round outline block (click)="SaveTo2()">Save (Examen clinique)</button>
+      </div>
+      <div class="col-md-4">
+        <button ion-button  round outline block (click)="goTo2()">go To(Accouchement)</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="periode3">
+    <h2><strong>Accouchement</strong></h2>
+    <ion-row>
+      <ion-col col-6>
+        <ion-item >
+          <ion-label  style="color: black; background-color: #dddddd;"  fixed="">Date de naissance</ion-label>
+          <ion-input type="Date" [(ngModel)]="date_nais_acc"  > </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label col-6 style="color: black; background-color: #dddddd;"  fixed="">Heure de naissance</ion-label>
+          <ion-input type="time" [(ngModel)]="heure_nais"  > </ion-input>
+        </ion-item>
+      </ion-col>
+
+
+      <ion-col col-12>
+        <ion-item>
+          <ion-label col-6 style="color: black; background-color: #dddddd;" fixed="">Lieu de naissance (nom de
+            l'établissement et adresse)
+          </ion-label>
+          <ion-textarea placeholder="nom de l'établissement et adresse" [(ngModel)]="nom_ets_add"></ion-textarea>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-3>
+        <ion-item>
+          <ion-label col-6 style="color: black; background-color: #dddddd;" floating>Age gestationnel(en semaine)
+          </ion-label>
+          <ion-input type="number" [(ngModel)]="Age_gestationnel"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-row col-12>
+        <ion-row col-10>
+          <div class="col-md-1">
+          </div>
+          <h4 class="col-md-2">Présentation</h4>
+          <ion-item col-3>
+            <ion-checkbox [(ngModel)]="Sommet"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;"  >Sommet</ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="siege"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;" >Siège</ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="autre"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;" >Autre</ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-row>
+      <ion-row col-12>
+        <ion-row col-10>
+          <div class="col-md-1">
+          </div>
+          <h4 class="col-md-2">Début du travail:</h4>
+          <ion-item col-3>
+            <ion-checkbox [(ngModel)]="Spontanne"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;"  >Spontanné</ion-label>
+          </ion-item>
+          <ion-item col-3>
+            <ion-checkbox [(ngModel)]="declenche"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;" >déclenche</ion-label>
+          </ion-item>
+          <ion-item col-3>
+            <ion-checkbox [(ngModel)]="cesarienneAvantTravail"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;" >Césarienne avant travail</ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-row>
+
+      <ion-row col-12>
+        <ion-row col-10>
+          <div class="col-md-1">
+          </div>
+          <h4 class="col-md-4">Rupture menbranaire plus de 12h avant l'accouchement:</h4>
+          <ion-item col-3>
+            <ion-checkbox [(ngModel)]="Oui"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;"  >Oui</ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;" >NON</ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-row>
+
+
+      <ion-row col-12>
+        <ion-row col-10>
+          <div class="col-md-1">
+          </div>
+          <h5 class="col-md-1">Analgésie</h5>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="aucune"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;"  >aucune</ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="general"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;" >général</ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="peridurale"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;" >aucune</ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="rachianesthesie"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;" >rachianesthesie</ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="autre"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;" >autre</ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-row>
+
+      <ion-row col-12>
+        <ion-row col-10>
+          <div class="col-md-1">
+          </div>
+          <h5 class="col-md-2">Naissance par :</h5>
+          <ion-item col-4>
+            <ion-checkbox [(ngModel)]="voieBasseNonInstrumentale"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">voie basse non instrumentale</ion-label>
+          </ion-item>
+          <ion-item col-4>
+            <ion-checkbox [(ngModel)]="extractionVoieBasseInstrumentale"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">extraction voie basse instrumentale</ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-row>
+      <ion-row col-12>
+        <ion-row col-10>
+          <div class="col-md-1">
+          </div>
+          <h5 class="col-md-2"></h5>
+          <ion-item col-4>
+            <ion-checkbox [(ngModel)]="cesarienneProgramme"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">Césarienne programmée</ion-label>
+          </ion-item>
+          <ion-item col-4>
+            <ion-checkbox [(ngModel)]="cesarienneNonProgramme"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">Césarienne non programmée</ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-row>
+
+      <ion-row col-12>
+        <ion-row col-10>
+          <div class="col-md-1">
+          </div>
+          <h5 class="col-md-2">En cas de césarienne, quelle indication?</h5>
+          <ion-item col-4>
+            <ion-checkbox [(ngModel)]="causeFoetale"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">Cause maternelle</ion-label>
+          </ion-item>
+          <ion-item col-4>
+            <ion-checkbox [(ngModel)]="cesarienneNonProgramme"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">Cause foetale</ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-row>
+
+
+      <ion-row col-12>
+        <ion-row col-10>
+          <div class="col-md-1">
+          </div>
+          <h5 class="col-md-2">Couleur du liquide amiotique</h5>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="claire"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">Claire</ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="teinte"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">Teinté </ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="meconiale"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">Méconiale </ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="autre"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">Autre </ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-row>
+      <ion-row col-12>
+        <ion-row col-10>
+          <div class="col-md-1">
+          </div>
+          <h5 class="col-md-2">Fièvre maternelle</h5>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="oui"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">OUI</ion-label>
+          </ion-item>
+          <ion-item col-2>
+            <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+            <ion-label style="color: black; background-color: #dddddd;">NON</ion-label>
+          </ion-item>
+        </ion-row>
+      </ion-row>
+    </ion-row>
+    <h3><strong>Examen de l'enfant à la naissance </strong></h3>
+
+    <ion-row col-md-12>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">Poids</ion-label>
+        <ion-input type="float"></ion-input>
+      </ion-item>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">Taille</ion-label>
+        <ion-input type="float"></ion-input>
+      </ion-item>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">PC</ion-label>
+        <ion-input type="float">cm</ion-input>
+      </ion-item>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">Apgar à 1 minute</ion-label>
+        <ion-input type="float"></ion-input>
+      </ion-item>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">Apgar à 5 minute</ion-label>
+        <ion-input type="float">cm</ion-input>
+      </ion-item>
+    </ion-row>
+    <h5><strong>L'etat de l'enfant a-t-il nécéssité des gestes techniques spétialisés?</strong></h5>
+    <ion-row col-md-12>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <ion-item col-8>
+        <ion-label style="color: black; background-color: #dddddd;">OUI</ion-label>
+        <ion-textarea placeholder="precisé les gestes techniques spétialisés" [(ngModel)]="gestTech"></ion-textarea>
+      </ion-item>
+    </ion-row>
+
+    <ion-row col-md-12>
+      <div class="col-md-1"></div>
+      <h5 col-md-2>Transfert?</h5>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">NON</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+      <ion-item col-7>
+        <ion-label style="color: black; background-color: #dddddd;">OUI</ion-label>
+        <ion-textarea placeholder="Si oui lieu du transfert (service et adresse)"
+                      [(ngModel)]="serviceLieu"></ion-textarea>
+      </ion-item>
+    </ion-row>
+
+    <ion-row col-md-12>
+      <div class="col-md-1"></div>
+      <h5 col-md-2><strong> Soins et geste pratiqué</strong></h5>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">Vitamine K</ion-label>
+        <ion-checkbox [(ngModel)]="VitamineK"></ion-checkbox>
+      </ion-item>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">Collyre</ion-label>
+        <ion-checkbox [(ngModel)]="non"></ion-checkbox>
+      </ion-item>
+    </ion-row>
+
+    <ion-row col-md-12>
+      <div class="col-md-1"></div>
+      <h5 col-md-2><strong>perméabilité</strong></h5>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">des chorale</ion-label>
+        <ion-checkbox [(ngModel)]="chorale"></ion-checkbox>
+      </ion-item>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">de l'osoephage</ion-label>
+        <ion-checkbox [(ngModel)]="osoephage"></ion-checkbox>
+      </ion-item>
+      <ion-item col-2>
+        <ion-label style="color: black; background-color: #dddddd;">de l'annus</ion-label>
+        <ion-checkbox [(ngModel)]="annus"></ion-checkbox>
+      </ion-item>
+    </ion-row>
+    <ion-item col-10>
+      <ion-label style="color: black; background-color: #dddddd;">Autre renseignements</ion-label>
+      <ion-textarea placeholder="Autre renseignements"
+                    [(ngModel)]="renseignements"></ion-textarea>
+    </ion-item>
+    <div class="row col-md-12">
+      <div class="col-md-3">
+        <button ion-button  round outline block (click)="goTo1()">go Back To(Examen Clinique)</button>
+      </div>
+      <div class="col-md-3">
+        <button ion-button  round outline block (click)="SaveTo3()">Save (Accouchement)</button>
+      </div>
+      <div class="col-md-3">
+        <button ion-button  round outline block (click)="goTo3()">go To(Sortie de maternité)</button>
+      </div>
+    </div>
+  </div>
+
+
+ <div *ngIf="periode4">
+   <h2><strong>Sortie de maternité</strong></h2>
+   <ion-row>
+     <ion-col col-6>
+       <ion-item >
+         <ion-label  style="color: black; background-color: #dddddd;"  fixed="">Date de sortie</ion-label>
+         <ion-input type="Date" [(ngModel)]="date_sortie"  > </ion-input>
+       </ion-item>
+       <ion-item>
+         <ion-label  style="color: black; background-color: #dddddd;"  fixed="">poids de sortie</ion-label>
+         <ion-input type="float" [(ngModel)]="poids_sortie"  > </ion-input>
+       </ion-item>
+     </ion-col>
+   </ion-row>
+   <ion-row col-md-12>
+     <div class="col-md-1"></div>
+     <h5 col-md-2><strong>Allertement</strong></h5>
+     <ion-item col-2>
+       <ion-label style="color: black; background-color: #dddddd;">Maternelle</ion-label>
+       <ion-checkbox [(ngModel)]="Maternelle"></ion-checkbox>
+     </ion-item>
+     <ion-item col-2>
+       <ion-label style="color: black; background-color: #dddddd;">Artificiele</ion-label>
+       <ion-checkbox [(ngModel)]="Artificiele"></ion-checkbox>
+     </ion-item>
+     <ion-item col-2>
+       <ion-label style="color: black; background-color: #dddddd;">Mixte</ion-label>
+       <ion-checkbox [(ngModel)]="Mixte"></ion-checkbox>
+     </ion-item>
+   </ion-row>
+   <ion-row col-md-12>
+     <div class="col-md-1"></div>
+     <h5 col-md-2><strong>Traitement de sortie</strong></h5>
+     <ion-item col-2>
+       <ion-label style="color: black; background-color: #dddddd;">Vitamine K</ion-label>
+       <ion-checkbox [(ngModel)]="Vitaminek_K_sortie"></ion-checkbox>
+     </ion-item>
+     <ion-item col-2>
+       <ion-label style="color: black; background-color: #dddddd;">Vitamine D</ion-label>
+       <ion-checkbox [(ngModel)]="Vitamine_D_sortie"></ion-checkbox>
+     </ion-item>
+   </ion-row>
+   <ion-item col-10>
+     <ion-label style="color: black; background-color: #dddddd;">Autre </ion-label>
+     <ion-textarea placeholder="Autre informations "
+                   [(ngModel)]="informations_sortie"></ion-textarea>
+   </ion-item>
+   <ion-row col-10>
+     <p>
+       <strong>
+         Observations particulières, conclusions, examens complémentaires, traitement entrepris,
+         recommendations eventuelle:
+       </strong>
+     </p>
+     <p>(si l'enfant a été hôpitalisé en période néonatale, il faut faire
+       figurer cette hospitalisation dans les pages  ...)</p>
+   </ion-row>
+
+   <div class="row col-md-12">
+     <div class="col-md-6">
+       <button ion-button  round outline block (click)="goTo2()">go Back To(Accouchement)</button>
+     </div>
+     <div class="col-md-6">
+       <button ion-button  round outline block (click)="SaveTo4()">Save (Sortie de maternité)</button>
+     </div>
+   </div>
+ </div>
+
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

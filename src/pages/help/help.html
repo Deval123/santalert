@@ -1,0 +1,80 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Help</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding #pageContent fullscreen>
+  <div id="menuTopContainer" ><ul id="menuTop">
+    <div id="content">
+      <div>
+        <div class="classicContent">
+          <div class="column">
+            <h2><img class="pres"  src="assets/imgs/habitech.jpeg" /></h2>
+            <p>Des Solutions, nous en avons. <strong>Des solutions sociales grâce à l'intelligence numérique</strong>
+              votre Agenda médical est assuré et vous est renseigné selon votre convenance</p>
+
+            <h4>Merci de nous faire confiance.</h4>
+            <p>Vous avez déjà un compte SANT‛ALERT ?
+            </p>
+            <ul>
+              <li><strong>Non</strong>, vous pouvez en creer un, et bénéficier des avantages que vous offre cet outil.</li>
+              <li><strong>Oui</strong>, Connectez vous tout simplement en utilisant votre login et password</li>
+              <li>Consultez la rubrique apropos, pour avoir plus d'information sur l'outils</li>
+            </ul>
+            <p><strong>Non</strong>. Je ne dispose pas encore d'un compte SANT‛ALERT, se rendre dans login, clicqué sur le lien
+              <strong>Nouveau dans Sant'Alert?</strong> et renseigner les informations.</p>
+            <h4> Que faire?</h4>
+            <ul>
+              <li>Si vous êtes juste utilisateur, ou n'appartenant à aucun corps médical, choisir patient</li>
+              <li>Si vous appartenez à un corps médical, bien vouloir choisir personnel médical</li>
+              <li>Ensuite, dans les deux cas, bien vouloir remplir le formulaire d'enregistrement.</li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>SANT‛ALERT</h3><p>
+            <img class="pres"  src="assets/imgs/Santlogo.png">
+            <h4>met à disposition vos informations banquées en un clic sur</h4>
+            <ul>
+              <li>Le groupe sanguin et rhésus</li>
+              <li>Allergies alimentaires et médicamenteuses</li>
+              <li>Examens</li>
+              <li>la fiabilité des informations qui s'y trouve,</li>
+            </ul>
+
+          </div></div>
+
+      </div></div></ul></div>
+
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

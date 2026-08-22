@@ -1,0 +1,47 @@
+
+<ion-content padding #pageContent fullscreen>
+ <!-- <p text-center> Consulter les informations d'un patient</p>
+  <ion-searchbar color="primary" (ionInput)="getItems($event)"></ion-searchbar>-->
+  <div *ngIf="etablissements">
+    <div *ngFor="let etablissement of etablissements">
+      <p>{{etablissement.nom}}</p>
+      <h3>Tel: {{ etablissement.telephone }}</h3>
+    </div>
+  </div>
+  <p text-center> Ajouter des informations chez un patient</p>
+  <div padding>
+    <button ion-button  round outline block (click)="creation()">Nouveau Compte</button>
+  </div>
+  <div padding>
+    <button ion-button  round outline block (click)="ajout()">Compte Existant</button>
+  </div>
+
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="5">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+            </ion-slide>
+          </ion-slides>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

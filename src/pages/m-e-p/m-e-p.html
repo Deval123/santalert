@@ -1,0 +1,16 @@
+<ion-header >
+  <ion-navbar color="primary">
+    <ion-title>Sant'Alert</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-tabs  tabsPlacement="top">
+    <ion-tab [root]="visitePRoot" tabTitle="Visites" tabIcon="female"></ion-tab>
+    <ion-tab [root]="vaccinPRoot" tabTitle="Vaccins" tabIcon="ionitron"></ion-tab>
+    <ion-tab [root]="examenPRoot" tabTitle="Examens" tabIcon="thumbs-up"></ion-tab>
+</ion-tabs>
+</ion-content>

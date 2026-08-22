@@ -1,0 +1,20 @@
+page-rechercher-patients {
+
+    .image-container {
+      min-height: 200px;
+      background-size: cover;
+    }
+
+    @media (min-width: 0px) {
+      .images {
+          column-count: 1;
+      }
+    }
+
+    .one-image {
+      margin: 0px;
+      max-height: 200px;
+      max-width: 300px;
+
+    }
+}

@@ -1,0 +1,152 @@
+
+<ion-content padding>
+  <ion-row col-12>
+    <ion-row col-2>
+
+    </ion-row>
+
+    <ion-row col-6>
+        <ion-list>
+          <h5>Injection unique recommandée</h5>
+          <ion-item *ngIf="!Vaccin1">
+            <ion-label style="color: black; background-color: #dddddd;">vaccin BCG</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin1" (click)="vaccin1()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin1">
+            <ion-label style="color: black; background-color: red;">vaccin BCG</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+          <h5>1re injection obligatoire</h5>
+          <ion-item *ngIf="!Vaccin2">
+            <ion-label style="color: black; background-color: #dddddd;">diphtérie</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin2" (click)="vaccin2()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin2">
+            <ion-label style="color: black; background-color: red;">diphtérie</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="!Vaccin3">
+            <ion-label style="color: black; background-color: #dddddd;">tétanos</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin3" (click)="vaccin3()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin3">
+            <ion-label style="color: black; background-color: red;">tétanos</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="!Vaccin5">
+            <ion-label style="color: black; background-color: #dddddd;">Poliomyélite (DTP)</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin5" (click)="vaccin5()"></ion-checkbox>
+          </ion-item>
+
+
+          <ion-item *ngIf="Vaccin5">
+            <ion-label style="color: black; background-color: red;">Poliomyélite (DTP)</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="!Vaccin6">
+            <ion-label style="color: black; background-color: #dddddd;">Coqueluche</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin6" (click)="vaccin6()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin6">
+            <ion-label style="color: black; background-color: red;">Coqueluche</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="!Vaccin8">
+            <ion-label style="color: black; background-color: #dddddd;">HIB (haemophilus influenzae b)</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin8" (click)="vaccin8()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin8">
+            <ion-label style="color: black; background-color: red;">HIB (haemophilus influenzae b)</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="!Vaccin9">
+            <ion-label style="color: black; background-color: #dddddd;">Hépatite B</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin9" (click)="vaccin9()"></ion-checkbox>
+          </ion-item>
+
+
+          <ion-item *ngIf="Vaccin9">
+            <ion-label style="color: black; background-color: red;">Hépatite B</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="!Vaccin10">
+            <ion-label style="color: black; background-color: #dddddd;">Pneumocoque</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin10" (click)="vaccin10()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin10">
+            <ion-label style="color: black; background-color: red;">Pneumocoque</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+          <h5>5 mois:</h5>
+          <p>1ere injection obligatoire :</p>
+          <ion-item *ngIf="!Vaccin11">
+            <ion-label style="color: black; background-color: #dddddd;">Méningocoque C</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin11" (click)="vaccin11()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin11">
+            <ion-label style="color: black; background-color: red;">Méningocoque C</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+          <h5>12 mois:</h5>
+          <p>1ere injection obligatoire :</p>
+
+          <ion-item *ngIf="!Vaccin12">
+            <ion-label style="color: black; background-color: #dddddd;">Rougeole</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin12" (click)="vaccin12()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin12">
+            <ion-label style="color: black; background-color: red;">Rougeole</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+
+
+          <ion-item *ngIf="!Vaccin13">
+            <ion-label style="color: black; background-color: #dddddd;">Oreillons</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin13" (click)="vaccin13()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin13">
+            <ion-label style="color: black; background-color: red;">Oreillons</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="!Vaccin13">
+            <ion-label style="color: black; background-color: #dddddd;">Rubéole</ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin13" (click)="vaccin13()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin13">
+            <ion-label style="color: black; background-color: red;">Rubéole</ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+          <h5>Ent :</h5>
+          <p>vaccination contre les infections à Papillomavirus humains(pour les jeunes filles)
+          </p>
+          <ion-item *ngIf="!Vaccin14">
+            <ion-label style="color: black; background-color: #dddddd;">HPV </ion-label>
+            <ion-checkbox [(ngModel)]="Vaccin14" (click)="vaccin14()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item *ngIf="Vaccin14">
+            <ion-label style="color: black; background-color: red;">HPV </ion-label>
+            <ion-checkbox ></ion-checkbox>
+          </ion-item>
+        </ion-list>
+    </ion-row>
+  </ion-row>
+
+</ion-content>

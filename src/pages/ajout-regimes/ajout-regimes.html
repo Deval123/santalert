@@ -1,0 +1,72 @@
+
+<ion-content padding #pageContent fullscreen>
+  <ion-list no-line>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Type regime" name="type_regime" #type_regime></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Date de début</ion-label>
+      <ion-input round type="datetime-local" placeholder="date début" name="datedebut" #datedebut></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="poids de départ" name="poidsDepart" #poidsDepart></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="imc" name="imc" #imc></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="restrictions" name="restrictions" #restrictions></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="taille" name="taille" #taille></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="nature du regime" name="natureRegime" #natureRegime></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="alimentation recommandé" name="alimentationRecommande" #alimentationRecommande></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="type de traitement" name="typeTraitement" #typeTraitement></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Date de fin</ion-label>
+      <ion-input round type="datetime-local" placeholder="date de fin" name="dateFin" #dateFin></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button  round outline block (click)="Ajouter()">Ajouter</button>
+  </div>
+
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

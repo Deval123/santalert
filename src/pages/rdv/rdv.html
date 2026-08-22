@@ -1,0 +1,142 @@
+
+<ion-content padding #pageContent fullscreen>
+
+  <ion-list  *ngIf="show">
+
+    <div class="page-content">
+
+      <!-- start agenda patient list -->
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="card  card-box">
+            <div class="card-head">
+              <header>RDV personel </header>
+              <div class="tools">
+                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+              </div>
+            </div>
+            <div class="card-body" >
+              <div class="table-wrap">
+                <div class="table-responsive">
+                  <table class="table display product-overview mb-30" id="support_table">
+                    <thead>
+                    <tr>
+                      <th> patient  </th>
+                      <th> mobile</th>
+                      <th> nature  </th>
+                      <th> date début </th>
+                      <th> date de fin </th>
+                      <th> lieu</th>
+                      <th>Nom médecin</th>
+                      <th>Observation</th>
+                      <th> Actions </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of items">
+                      <td> {{item.patient}} </td>
+                      <td>{{item.mobile}}</td>
+                      <td>
+                        <a href="####"> {{item.nature}} </a>
+                      </td>
+                      <td> {{item.datedebut}} </td>
+                      <td>{{item.datefin}}</td>
+                      <td> {{item.lieu}} </td>
+                      <td>{{item.nommedecin}}</td>
+                      <td>{{item.observation}}</td>
+                      <td>
+                        <a href="javascript:void(0)" (click)="editRdv(item.id)" class="" data-toggle="tooltip" title="Edit" >
+                          <i class="fa fa-check"></i></a>
+                        <a href="javascript:void(0)" (click)="showOneRdv(item.id)" class="" data-toggle="tooltip" title="View" >
+                          <i class="fa fa-certificate"></i></a>
+                        <a href="javascript:void(0)" (click)="deleteRdv(item.id)" class="text-inverse" title="Delete" data-toggle="tooltip">
+                          <i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end agenda patient list -->
+
+
+    </div>
+
+    <div id="circle-button-top" class="loginButton">
+      <button  (click)="addRdv()" class="button" style="background-color: dodgerblue; color: white; font-size: x-large; border-radius: 50% " >
+        +</button>  </div>
+
+  </ion-list>
+
+  <ion-list no-line *ngIf="addrdv">
+    <ion-item>
+      <ion-input type="text" placeholder="Patient" name="patient" #patient></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel" placeholder="Mobile" name="mobile" #mobile></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Date et heure du jour</ion-label>
+      <ion-input round type="datetime-local" placeholder="Date de début" name="datedebut" #datedebut></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Date et heure du rendez-vous</ion-label>
+      <ion-input round type="datetime-local" placeholder="Date de fin" name="datefin" #datefin></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Nom du médecin" name="nommedecin" #nommedecin></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="nature" name="nature" #nature></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Lieu du rendez-vous" name="lieu" #lieu></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Observation" name="observation" #observation></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <div padding text-center>
+    <button ion-button round color="light" icon-right (click)="addRdv()">
+      Ajouter<ion-icon name="log-in"></ion-icon>
+    </button>
+  </div>
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

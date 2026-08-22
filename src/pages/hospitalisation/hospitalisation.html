@@ -1,0 +1,150 @@
+<ion-content padding #pageContent fullscreen>
+  <div *ngIf="show">
+      <div class="page-content">
+
+        <!-- start agenda patient list -->
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="card  card-box">
+              <div class="card-head">
+                <header> </header>
+                <div class="tools">
+                  <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                  <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                  <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                </div>
+              </div>
+
+              <div class="card-body ">
+                <div class="table-wrap">
+                  <div class="table-responsive">
+                    <table class="table display product-overview mb-30" id="support_table">
+                      <thead>
+                      <tr>
+                        <th>Nature</th>
+                        <th>lieu d'Hospitalisation</th>
+                        <th> Date de l'Hospitalisation </th>
+                        <th>Coût</th>
+                        <th> Actions </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let item of hospitalisation">
+                        <td > {{item.nature}} </td>
+                        <td > {{item.lieuHospitalisation}} </td>
+                        <td> {{item.datecreate}} </td>
+                        <td > {{item.cout}} </td>
+
+                        <td>
+                            <a href="javascript:void(0)" (click)="showOneExamen(item)" class="" data-toggle="tooltip" title="View" >
+                                <i class="fa fa-certificate"></i></a>
+                        </td>
+                      </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end agenda patient list -->
+
+        <ion-fab right bottom>
+          <button ion-fab mini color="danger" (click)="formadd()"><ion-icon name="add"></ion-icon></button>
+        </ion-fab>
+      </div>
+      </div>
+   <ion-list >
+    <div *ngIf="show" id="circle-button-top" class="loginButton">
+      <button  (click)="formadd()" class="button" style="background-color: dodgerblue; color: white; font-size: x-large; border-radius: 50% " >+</button>  </div>
+  </ion-list>
+
+<div *ngIf="addOne">
+    <ion-list>
+        <ion-item>
+          <img src="{{base64Image}}" title="pict">
+        </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Nature</ion-label>
+        <ion-input type="text" class="ion-input" [(ngModel)]="nature"></ion-input>
+      </ion-item>
+
+      <ion-item>
+         <ion-label fixed>lieu</ion-label>
+         <ion-input type="text" class="ion-input" [(ngModel)]="lieuHospitalisation"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Cout</ion-label>
+        <ion-input type="text" class="ion-input" [(ngModel)]="cout"></ion-input>
+      </ion-item>
+
+      <div>
+        <button ion-button color="primary" block (click)="presentActionSheet()">Take picture</button>
+      </div>
+
+      <div>
+        <button ion-button color="danger" block (click)="add()">Submit</button>
+      </div>
+     </ion-list>
+</div>
+
+<div *ngIf="showOne">
+    <div class="jumbotron text-center">
+      <div class="table-responsive">
+          <h2 text-center="100px">Hospitalisation éffectué le:<strong>{{item.datecreate}}</strong> </h2>
+              <p><strong>Lieu</strong>: {{item.lieuHospitalisation}} </p>
+        <section id="tab-recap">
+
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="images col col-33"></div>
+                  <div class="one-image-dev col col-33 col-center">
+                     <img src="{{server + item.image}}" alt="">
+                  </div>
+                  <div class="col col-33"></div>
+               </div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <table class="float-right nb-tab">
+      <tr>
+        <td class="nb"><strong>NB</strong></td>
+        <td class="nb-text">Bien vouloir consulter son agenda ! Pour<br />
+                            connaître les dates des prochains rendez-vous<br />
+                            Le prochain est prévu le:{{item.rdv_datedebut}}</td>
+      </tr>
+    </table>
+  </div>
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

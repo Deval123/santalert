@@ -1,0 +1,74 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+  <ion-navbar>
+      <ion-title>Creer un nouveau patient</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content #pageContent fullscreen>
+  <form >
+
+    <ion-item>
+      <ion-input type="text" placeholder="Nom" name="fullname" #username></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Prenom" name="fullname" #firstname></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="email" placeholder="Email" name="email" #email></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="email" placeholder="Email secondaire" name="email1" #email1></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="tel" placeholder="Contact" name="mobile" #mobile></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="tel" placeholder="Numéros d'alertes" name="mobile1" #mobile1></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Mot de passe" name="password" #password></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pays</ion-label>
+      <ion-select selecDesktop [(ngModel)]="countryText" #country="ngModel" name="country" [compareWith]="comparePays">
+        <ion-option *ngFor="let item of items" [value]="item">{{item.pays}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div padding>
+      <button ion-button  round outline block (click)="Register()">Enregistrer</button>
+    </div>
+  </form>
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

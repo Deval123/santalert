@@ -1,0 +1,85 @@
+
+<ion-content padding #pageContent fullscreen>
+  <ion-list no-line>
+
+    <ion-item>
+      <ion-label floating>Date du jour</ion-label>
+      <ion-input round type="datetime-local" placeholder="Date creation" name="dateCreate" #dateCreate></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Intitule" name="intitule" #intitule></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Temperature" name="temperature" #temperature></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Taille" name="taille" #taille></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Tension" name="tension" #tension></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="poids Actuel" name="poidsActuel" #poidsActuel></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="IMC" name="imc" #imc></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="TGC" name="tgc" #tgc></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="masseMinEraleOsseuse" name="masseMinEraleOsseuse" #masseMinEraleOsseuse></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="pourcentageEau" name="pourcentageEau" #pourcentageEau></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="masseMusculaire" name="masseMusculaire" #masseMusculaire></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="evaluationSihouette" name="evaluationSihouette" #evaluationSihouette></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="tgViscerale" name="tgViscerale" #tgViscerale></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button  round outline block (click)="Ajouter()">Ajouter</button>
+  </div>
+
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,102 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+<ion-navbar>
+    <ion-title>edit-agenda-patients</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding #pageContent fullscreen>
+
+  <ion-list no-line>
+    <!--
+//patients_id, datedebut, datefin, nature, lieu, observation, tiers round type="datetime-local"
+    -->
+
+    <ion-item>
+      <ion-label floating>Date du jour</ion-label>
+      <ion-input id="newdatedebut" type="text" name= "newdatedebut" #newdatedebut [(ngModel)]="datedebut"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>nature</ion-label>
+      <ion-input id="newnature" type="text" name= "newnature" #newnature [(ngModel)]="nature"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>lieu</ion-label>
+      <ion-input id="newlieu" type="text" name= "newlieu" #newlieu [(ngModel)]="lieu"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Observation</ion-label>
+      <ion-input id="newobservation" type="text" name= "newobservation" #newobservation [(ngModel)]="observation"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>tiers</ion-label>
+      <ion-input id="newtiers" type="text" name= "newtiers" #newtiers [(ngModel)]="tiers"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Cout</ion-label>
+      <ion-input id="newcout" type="float" name= "newcout" #newcout [(ngModel)]="cout"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>date de réalisation</ion-label>
+      <ion-input id="newdatefin" type="text" name= "newdatefin" #newdatefin [(ngModel)]="datefin"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>date de rappel 1</ion-label>
+      <ion-input id="newdatefin1" type="text" name= "newdatefin1" #newdatefin1 [(ngModel)]="datefin1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>date de rappel 2</ion-label>
+      <ion-input id="newdatefin2" type="text" name= "newdatefin2" #newdatefin2 [(ngModel)]="datefin2"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>date de rappel 3</ion-label>
+      <ion-input id="newdatefin3" type="text" name= "newdatefin3" #newdatefin3 [(ngModel)]="datefin3"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div >
+
+    <button ion-button  round outline block (click)="Edit()">Update</button>
+    <!--
+        <ion-icon name="create"></ion-icon>
+    -->
+  </div>
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

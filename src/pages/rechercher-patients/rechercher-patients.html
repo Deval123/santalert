@@ -1,0 +1,97 @@
+
+<ion-content padding #pageContent fullscreen>
+  <ion-list >
+
+    <div class="page-content">
+
+
+      <!-- start recherch list -->
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="card  card-box">
+            <div class="card-head">
+              <header>Résultat de votre recherche</header>
+              <div class="tools">
+                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+              </div>
+            </div>
+            <div class="card-body ">
+              <div class="table-wrap">
+                <div class="table-responsive">
+                  <table class="table display product-overview mb-30" id="support_table">
+                    <thead>
+                    <tr>
+                      <th> Photo  </th>
+                      <th> Nom </th>
+                      <th> Prenom </th>
+                      <th> Email </th>
+                      <th> Telephone </th>
+                      <th> Actions </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr *ngFor="let item of items">
+                      <td>
+                         <!-- Responsive Layout with Ion Grid-->
+                         <div class="images">
+                            <div class="one-image" >
+                              <img src="{{server + item.filename}}">
+                            </div>
+                          </div>
+
+                      </td>
+                      <td>{{item.nom}}</td>
+                      <td> {{item.prenom}} </td>
+                      <td>{{item.email}}</td>
+                      <td>{{item.telephone}}</td>
+                      <td>
+                        <a href="javascript:void(0)" (click)="select(item)" class="" data-toggle="tooltip" title="select" >
+                          <i class="fa fa-check"></i></a>
+                      </td>
+                    </tr>
+
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end recherch list -->
+
+
+    </div>
+
+  </ion-list>
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

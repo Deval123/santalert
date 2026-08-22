@@ -1,0 +1,130 @@
+
+<ion-content padding id="login" padding #pageContent fullscreen>
+
+  <div id="imgwrap">
+    <img src="assets/imgs/Santlogo.png">
+  </div>
+
+  <div  padding>
+    <ion-segment [(ngModel)]="opt" color="primary">
+      <ion-segment-button value="patient">
+        Patient
+      </ion-segment-button>
+      <ion-segment-button value="personnel">
+        Personnel Médical
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="opt" >
+    <form  *ngSwitchCase="'patient'">
+
+      <ion-input  round type="text" placeholder="Nom" name="username" #username></ion-input>
+
+      <ion-input type="password" placeholder="Mot de passe" name="password" #password></ion-input>
+
+      <p text-right ion-text  tappable (click)="forgotPass()"><strong>Mot de passe oublié?</strong></p>
+      <div padding text-center>
+        <button ion-button round color="light" icon-right (click)="signIn()">
+          Se connecter<ion-icon name="log-in"></ion-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div [ngSwitch]="opt">
+    <form  *ngSwitchCase="'personnel'">
+
+      <ion-input  round type="text" placeholder="Login" name="username" #username></ion-input>
+
+      <ion-input type="password" placeholder="Mot de passe" name="password" #password></ion-input>
+
+      <p text-right ion-text  tappable (click)="forgotPass()"><strong>Mot de passe oublié?</strong></p>
+      <div padding text-center>
+        <button ion-button round color="light" icon-right (click)="signInPersonel()">
+          Se connecter<ion-icon name="log-in"></ion-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <p text-center ion-text ><strong> Se connecter avec:</strong></p>
+
+  <ion-grid>
+    <ion-row>
+
+
+      <div *ngIf="userProfile; else loginFace">
+        <h1>Welcome, {{userProfile.name}}!</h1>
+        <p>Email: {{userProfile.email}}<br></p>
+        <p><ion-avatar item-left>
+          <img src="{{userProfile.picture.data.url}}">
+        </ion-avatar></p>
+        <p><button ion-button (click)="logout()">Logout From Facebook</button></p>
+      </div>
+
+      <ng-template #loginFace>
+        <ion-col col-6>
+          <button ion-button  round  icon-only block class="btn-facebook" (click)="fbLogin()">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </button>
+        </ion-col>
+      </ng-template>
+
+
+
+      <div *ngIf="isLoggedIn; else loginTemplate">
+        <h1>Welcome, {{displayName}}!</h1>
+        <p>Email: {{email}}<br>
+          Family Name: {{familyName}}<br>
+          Given Name: {{givenName}}<br>
+          User ID: {{userId}}</p>
+        <p><ion-avatar item-left>
+          <img src="{{imageUrl}}">
+        </ion-avatar></p>
+        <p><button ion-button (click)="logout()">Logout From Google</button></p>
+      </div>
+
+      <ng-template #loginTemplate>
+        <ion-col col-6>
+          <button ion-button  (click)="login()" round id="googlebtn" icon-only block class="btn-gplus">
+            <ion-icon name="logo-googleplus"></ion-icon>
+          </button>
+        </ion-col>
+      </ng-template>
+
+
+    </ion-row>
+    <div text-center margin-top>
+      <span ion-text tappable (click)="signUp()"><strong>Nouveau dans Sant'Alert? </strong></span>
+    </div>
+  </ion-grid>
+
+  <!-- Set the number of slides visisble at any time to 5 -->
+
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

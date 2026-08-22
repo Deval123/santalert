@@ -1,0 +1,155 @@
+
+<ion-content padding #pageContent fullscreen>
+<!--
+  //intitule	temperature	taille	tension	dateCreate	patients_id	poidsActuel	poidsNormal	imc	tgc	masseMinEraleOsseuse	pourcentageEau	masseMusculaire	evaluationSihouette	tgViscerale
+-->
+
+  <ion-item *ngFor="let item of items" >
+    <ion-row>
+      <ion-col col-4>
+        Date:
+      </ion-col>
+      <ion-col col-8>
+        {{item.dateCreate}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Intitule:
+      </ion-col>
+      <ion-col col-8>
+        {{item.intitule}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Temperature:
+      </ion-col>
+      <ion-col col-8>
+        {{item.temperature}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Taille:
+      </ion-col>
+      <ion-col col-8>
+        {{item.taille}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Tension:
+      </ion-col>
+      <ion-col col-8>
+        {{item.tension}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Poids Actuel:
+      </ion-col>
+      <ion-col col-8>
+        {{item.poidsActuel}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Indice de masse coporel:
+      </ion-col>
+      <ion-col col-8>
+        {{item.imc}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Taux de graisse corporel:
+      </ion-col>
+      <ion-col col-8>
+        {{item.tgc}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Masse Minérale Osseuse:
+      </ion-col>
+      <ion-col col-8>
+        {{item.masseMinEraleOsseuse}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Pourcentage en eau:
+      </ion-col>
+      <ion-col col-8>
+        {{item.pourcentageEau}}
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4>
+        Masse Musculaire:
+      </ion-col>
+      <ion-col col-8>
+        {{item.masseMusculaire}}
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4>
+        Evaluation Sihouette:
+      </ion-col>
+      <ion-col col-8>
+        {{item.evaluationSihouette}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Taux de Graisse Viscerale:
+      </ion-col>
+      <ion-col col-8>
+        {{item.tgViscerale}}
+      </ion-col>
+
+    </ion-row>
+    <button ion-button  round outline block (click)="editBilan(item)">Edit</button>
+  </ion-item>
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

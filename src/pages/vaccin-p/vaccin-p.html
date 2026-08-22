@@ -1,0 +1,293 @@
+<!--
+  Generated template for the VaccinPPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Suivi mère & enfant</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div  padding>
+    <ion-segment [(ngModel)]="opt" color="primary">
+      <ion-segment-button value="case1">
+        Vaccin
+      </ion-segment-button>
+      <ion-segment-button value="case2">
+        Liste des Vaccin
+      </ion-segment-button>
+
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="opt" >
+    <form  *ngSwitchCase="'case1'">
+
+      <ion-item *ngIf="visite">
+        <ion-label floating>Date consultation</ion-label>
+        <ion-input  round type="datetime-local" placeholder="Date consultation" name="datecreate" #datecreate></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="visite">
+        <ion-input type="text" placeholder="nom medecin" name="nom_medecin" #nom_medecin></ion-input>
+      </ion-item>
+
+      <div padding text-center *ngIf="visite">
+        <button ion-button round color="light" icon-right (click)="add_grossesse()">
+          Ajouter<ion-icon name="login"></ion-icon>
+        </button>
+        <button ion-button round color="light" icon-right (click)="add_visite()">
+          Ajouter visite<ion-icon name="login"></ion-icon>
+        </button>
+      </div>
+
+      <div padding text-center *ngIf="consultation">
+        <button ion-button round color="light" icon-right (click)="add_param()">
+          Prise de paramètre<ion-icon name="build"></ion-icon>
+        </button>
+      </div>
+
+      <div padding text-center *ngIf="consultation">
+        <button ion-button round color="light" icon-right (click)="add_auscultation()">
+          Ausculatation<ion-icon name="medical"></ion-icon>
+        </button>
+      </div>
+
+      <div padding text-center *ngIf="consultation">
+        <button ion-button round color="light" icon-right (click)="add_ordonance()">
+          Ordonance<ion-icon name="bookmark"></ion-icon>
+        </button>
+      </div>
+
+      <div padding text-center *ngIf="consultation">
+        <button ion-button round color="light" icon-right (click)="add_examen()">
+          Examen<ion-icon name="nutrition"></ion-icon>
+        </button>
+      </div>
+
+      <div padding text-center *ngIf="consultation">
+        <button ion-button round color="light" icon-right (click)="addRdv()">
+          RDV<ion-icon name="eye"></ion-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div [ngSwitch]="opt">
+    <form  *ngSwitchCase="'case2'">
+      <div padding text-center >
+        <button ion-button round color="light" icon-right (click)="hospi()">
+          Hospitalisation<ion-icon name="medical"></ion-icon>
+        </button>
+      </div>
+      <ion-item *ngIf="consult">
+        <ion-label fixed>Date d'entrée</ion-label>
+        <ion-input  round type="datetime-local"  name="date_entree" #date_entree></ion-input>
+      </ion-item>
+      <div *ngIf="consult">
+        <ion-item>
+          <ion-label fixed>Nom du médecin Traitant</ion-label>
+          <ion-input type="text"  name="medecinTraitant" #medecinTraitant></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>Symptomes</ion-label>
+          <ion-textarea class="ion-input" name="symptome" #symptome></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>Causes</ion-label>
+          <ion-input type="text" class="ion-input" name="causes" #causes></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>Diagnostic</ion-label>
+          <ion-input type="text" class="ion-input" name="diagnostique" #diagnostique></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>Recommandations Alimentaire</ion-label>
+          <ion-input type="text" class="ion-input" name="recommandationsAlimentaire" #recommandationsAlimentaire></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>No Chambre</ion-label>
+          <ion-input type="Integer" class="ion-input" name="numeroChambre" #numeroChambre></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>NoLit</ion-label>
+          <ion-input type="Integer" class="ion-input"  name="numeroLit" #numeroLit></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>No Dossier</ion-label>
+          <ion-input type="Integer" class="ion-input" name="numeroDossier" #numeroDossier></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-item *ngIf="consult">
+        <ion-label fixed>Date de sortie</ion-label>
+        <ion-input  round type="datetime-local" class="ion-input" name="date_sortie" #date_sortie></ion-input>
+      </ion-item>
+      <!--<ion-item>
+        <ion-label>Particularité</ion-label>
+        <ion-select selecDesktop [(ngModel)]="particulariteText" multiple="true" name="particularites"  (ionChange)="onChange($event)">
+          <ion-option value="Intervention Chirurgicale">Intervention Chirurgicale</ion-option>
+          <ion-option value="Anesthésie">Anesthésie</ion-option>
+          <ion-option value="Soins Intensifs">Soins Intensifs</ion-option>
+          <ion-option value="Urgences">Urgences</ion-option>
+          <ion-option value="Autres">Autres</ion-option>
+        </ion-select>
+      </ion-item>-->
+
+      <div padding text-center *ngIf="consult">
+        <button ion-button round color="light" icon-right (click)="add_hospitalisation()">
+          Ajouter<ion-icon name="login"></ion-icon>
+        </button>
+      </div>
+
+      <div padding text-center *ngIf="hospitalisation">
+        <button ion-button round color="light" icon-right (click)="add_traitement()">
+          Traitement<ion-icon name="medical"></ion-icon>
+        </button>
+      </div>
+
+
+
+      <div *ngIf="particularites"> <!---->
+        <h3>Avez vous des particularités ?</h3>
+
+        <ion-item>
+          <ion-label>Intervention Chirurgicale ?</ion-label>
+          <ion-select selecDesktop [(ngModel)]="chirurgicaleText" multiple="false" name="chirurgicale" (ionChange)="onChange($event)">
+            <ion-option value="Chirurgicale">OUI</ion-option>
+            <ion-option value="aucune intervention chirurgicale">NON</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Anesthesie ?</ion-label>
+          <ion-select selecDesktop [(ngModel)]="anesthesieText" multiple="false" name="anesthesie"  (ionChange)="onChange($event)">
+            <ion-option value="Anesthésie">OUI</ion-option>
+            <ion-option value="aucune anesthesie">NON</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Soins Intensifs ?</ion-label>
+          <ion-select selecDesktop [(ngModel)]="soinsIntensifsText" multiple="false" name="soinsIntensifs"  (ionChange)="onChange($event)">
+            <ion-option value="Soins Intensifs">OUI</ion-option>
+            <ion-option value="aucun Soins Intensifs">NON</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Urgences?</ion-label>
+          <ion-select selecDesktop [(ngModel)]="urgencesText" multiple="false" name="urgences"  (ionChange)="onChange($event)">
+            <ion-option value="Urgences">OUI</ion-option>
+            <ion-option value="aucune urgences">NON</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>autres?</ion-label>
+          <ion-select selecDesktop [(ngModel)]="autresText" multiple="false" name="autres"  (ionChange)="onChange($event)">
+            <ion-option value="Autres">OUI</ion-option>
+            <ion-option value="">NON</ion-option>
+          </ion-select>
+        </ion-item>
+
+
+        <!--
+                <ion-input type="text" placeholder="Intervention Chirurgicale" name="chirurgicale" #chirurgicale></ion-input>
+                <ion-input type="text" placeholder="Anesthesie" name="anesthesie" #anesthesie></ion-input>
+                <ion-input type="text" placeholder="Soins Intensifs" name="soinsIntensifs" #soinsIntensifs></ion-input>
+                <ion-input type="text" placeholder="Urgences" name="urgences" #urgences></ion-input>
+                <ion-input type="text" placeholder="Autres " name="autres" #autres></ion-input>
+        -->
+
+        <div padding text-center>
+          <button ion-button round color="light" icon-right (click)="add_particularites()">
+            Ajouter<ion-icon name="login"></ion-icon>
+          </button>
+        </div>
+        <!--<ion-item>
+          <ion-label>Particularité</ion-label>
+          <ion-select selecDesktop [(ngModel)]="particulariteText" multiple="true" name="particularites"  (ionChange)="onChange($event)">
+            <ion-option value="Intervention Chirurgicale">Intervention Chirurgicale</ion-option>
+            <ion-option value="Anesthésie">Anesthésie</ion-option>
+            <ion-option value="Soins Intensifs">Soins Intensifs</ion-option>
+            <ion-option value="Urgences">Urgences</ion-option>
+            <ion-option value="Autres">Autres</ion-option>
+          </ion-select>
+        </ion-item>-->
+      </div>
+
+
+      <div *ngIf="hosp">
+        <div class="page-content">
+
+          <!-- start agenda patient list -->
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="card  card-box">
+                <div class="card-head">
+                  <header> </header>
+                  <div class="tools">
+                    <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                    <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                    <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                  </div>
+                </div>
+
+                <div class="card-body ">
+                  <div class="table-wrap">
+                    <div class="table-responsive">
+                      <table class="table display product-overview mb-30" id="support_table">
+                        <thead>
+                        <tr>
+                          <th>Nature</th>
+                          <th>lieu d'Hospitalisation</th>
+                          <th> Date de l'Hospitalisation </th>
+                          <th>Coût</th>
+                          <th> Actions </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let item of hosp">
+                          <td > {{item.nature}} </td>
+                          <td > {{item.lieuHospitalisation}} </td>
+                          <td> {{item.datecreate}} </td>
+                          <td > {{item.cout}} </td>
+
+                          <td>
+                            <a href="javascript:void(0)" (click)="showOneExamen(item)" class="" data-toggle="tooltip" title="View" >
+                              <i class="fa fa-certificate"></i></a>
+                          </td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end agenda patient list -->
+
+          <ion-fab right bottom>
+            <button ion-fab mini color="danger" (click)="formadd()"><ion-icon name="add"></ion-icon></button>
+          </ion-fab>
+        </div>
+      </div>
+    </form>
+  </div>
+</ion-content>

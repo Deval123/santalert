@@ -1,0 +1,93 @@
+<ion-menu [content]="content" id="menu-avatar">
+  <ion-header class="sidemenuHeader">
+    <ion-toolbar>
+      <ion-item no-lines *ngFor="let item of selectcity">
+        <ion-avatar item-left  >
+          <h2><img src="{{server + item.filename}}" /></h2>
+        </ion-avatar>
+        <h2><p>Sant'Alert</p></h2>
+        <p>{{item.nom}}</p>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content class="menu">
+    <ion-list no-lines>
+      <button menuClose="left" ion-item *ngFor="let p of pages" (click)="openPage(p)">
+       {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+
+</ion-menu>
+
+<ion-menu [content]="content" side="left" id="menu1">
+  <ion-header class="sidemenuHeader">
+    <ion-toolbar>
+      <ion-item no-lines *ngFor="let item of selectcity">
+        <ion-avatar item-left  >
+          <h2><img src="{{server + item.filename}}" /></h2>
+        </ion-avatar>
+        <h2><p>Sant'Alert</p></h2>
+        <p>{{item.nom}}</p>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content class="menu">
+    <ion-list>
+      <button menuClose="left" ion-item *ngFor="let p of devpages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-menu [content]="content" side="right" id="menu2">
+  <ion-toolbar danger>
+    <ion-title>Menu 2</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-list>
+      <button ion-item menuClose="menu2" detail-none>
+        Close Menu 2
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<!--<ion-footer id="footer"  class="global-footer" *ngIf="globalFooterEnabled">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>-->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+
+
+
+

@@ -1,0 +1,79 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+<ion-navbar color="primary">
+    <ion-title>pharmacie</ion-title>
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="resetData()"><ion-icon name="refresh"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding #pageContent fullscreen>
+
+  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+
+  <div *ngIf="searching" class="spinner-container">
+      <ion-spinner></ion-spinner>
+  </div>
+
+  <ion-list ion-color-light-tint *ngIf="items">
+      <ion-item *ngFor="let item of items" ion-color-light-tint>
+        {{item.name}}
+          <ion-buttons end>
+            <button ion-button icon-only (click)="showAll(item.id)"><ion-icon name="logo-buffer"></ion-icon></button>
+            <button ion-button icon-only (click)="filterData(item.id)"><ion-icon name="funnel"></ion-icon></button>
+          </ion-buttons>
+      </ion-item>
+
+  </ion-list>
+
+
+  <ion-list ion-color-light-tint *ngIf="pharmacies">
+    <ion-item *ngFor="let item of filterpharmacie" ion-color-light-tint>
+        Nom: &nbsp; {{item.nom}}, &nbsp; &nbsp; Localisation: &nbsp;
+        {{item.localisation}}, &nbsp; &nbsp; tel :&nbsp;
+        {{item.tel}}, &nbsp; &nbsp; Heure Ouverture: &nbsp; {{item.heure_ouverture}}, &nbsp; &nbsp;
+        Heure Fermeture: &nbsp; {{item.heure_fermeture}}.
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list ion-color-light-tint *ngIf="All">
+    <ion-item *ngFor="let item of AllPhamarcie" ion-color-light-tint>
+      Nom: &nbsp; {{item.nom}}, &nbsp; &nbsp; Localisation: &nbsp;
+      {{item.localisation}}, &nbsp; &nbsp; tel :&nbsp;
+      {{item.tel}}, &nbsp; &nbsp; Heure Ouverture: &nbsp; {{item.heure_ouverture}}, &nbsp; &nbsp;
+      Heure Fermeture: &nbsp; {{item.heure_fermeture}}.
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

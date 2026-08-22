@@ -1,0 +1,79 @@
+
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>parametres</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding #pageContent fullscreen>
+
+    <ion-list>
+        <ion-item-sliding *ngFor="let user of users;">
+          <ion-item >
+            <ion-avatar item="start">
+                <img src="{{server + user.filename}}" title="pict">
+            </ion-avatar>
+            <h2>{{user.nom}}</h2>
+            <h3>{{user.prenom}}</h3>
+            <p>{{user.email}} - {{user.telephone}}</p>
+          </ion-item>
+          <ion-item-options slide="right">
+              <button ion-button color="prmary" (click)="showData(user.id)">
+                <ion-icon name="eye"></ion-icon>
+                Show
+              </button>
+              <button ion-button color="secondary" (click)="updateData(user.id, user.nom, user.telephone,
+              user.sexe, user.telephone1, user.email, user.email1, user.prenom, user.anneeNais,
+              user.lieuNais, user.profession, user.filename, user.lieuService, user.telBureau, user.residencePrincipal,
+              user.residenceSecondaire, user.nomPere, user.telPere, user.emailPere, user.professionPere, user.quartierPere,
+              user.ruePere, user.nomMere, user.telMere, user.emailMere, user.professionMere, user.quartierMere, user.rueMere,
+              user.nomTuteur, user.telTuteur, user.emailTuteur, user.professionTuteur, user.quartierTuteur, user.rueTuteur,
+              user.proche1, user.tel_proche1, user.emailProche1, user.residenceProche1, user.professionProche1, user.proche2,
+              user.tel_proche2, user.emailProche2, user.residenceProche2, user.professionProche2, user.proche3, user.tel_proche3,
+              user.emailProche3, user.residenceProche3, user.professionProche3, user.groupeSanguin, user.allergie, user.incapacite,
+              user.medecinFamille, user.assurance, user.rhesus, user.observationPhisyque, user.signeParticulier)">
+                <ion-icon name="brush"></ion-icon>
+                Update
+              </button>
+              <button ion-button color="danger" (click)="deleteData(user.id)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+            </ion-item-options>
+      </ion-item-sliding>
+      </ion-list>
+        <ion-fab right bottom>
+          <button ion-fab mini color="danger" (click)="formadd()"><ion-icon name="add"></ion-icon></button>
+        </ion-fab>
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

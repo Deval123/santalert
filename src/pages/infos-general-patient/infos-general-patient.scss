@@ -1,0 +1,17 @@
+page-infos-general-patient {
+
+  .image-container {
+    min-height: 200px;
+    background-size: cover;
+  }
+
+  @media (min-width: 0px) {
+    .images {
+        column-count: 1;
+    }
+  }
+
+  .one-image {
+    margin: 0px;
+  }
+}

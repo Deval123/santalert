@@ -1,0 +1,164 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar>
+    <ion-title>register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding #pageContent fullscreen>
+
+  <div  padding>
+    <ion-segment [(ngModel)]="opt" color="primary">
+      <ion-segment-button value="patient">
+        Patient
+      </ion-segment-button>
+      <ion-segment-button value="personnel">
+        Personnel Médical
+      </ion-segment-button>
+      <ion-segment-button value="admin">
+         Admin
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="opt" >
+    <form  *ngSwitchCase="'patient'">
+
+      <ion-item>
+        <ion-input type="text" placeholder="Login" name="fullname" #username></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Nom" name="fullname" #firstname></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="email" placeholder="Email principal" name="email" #email></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="email" placeholder="Email secondaire" name="email1" #email1></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="tel" placeholder="Numéro à contacter" name="mobile" #mobile></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="tel" placeholder="Numéros d'alertes" name="mobile1" #mobile1></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="Mot de passe" name="password" #password></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Pays</ion-label>
+        <ion-select selecDesktop [(ngModel)]="countryText" #country="ngModel" name="country" [compareWith]="comparePays">
+          <ion-option *ngFor="let item of items" [value]="item">{{item.pays}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <div padding>
+        <button ion-button  round outline block (click)="Register()">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+
+  <div [ngSwitch]="opt">
+    <form *ngSwitchCase="'personnel'">
+
+    <!--  <ion-item>
+        <ion-label>Etablissement</ion-label>
+        <ion-select selecDesktop [(ngModel)]="codeText" name="code" #code="ngModel" [compareWith]="compare">
+          <ion-option *ngFor="let item of items" [value]="item">{{item.nom}}</ion-option>
+        </ion-select>
+      </ion-item>-->
+
+     <!--
+
+        <ion-input type="text" placeholder="nom" name="nom" #nom></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="tel" placeholder="telephone" name="telephone" #telephone></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Email" name="emailpers" #emailpers></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="type personnel" name="type_personnel" #type_personnel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Mot de passe" name="passwordpers" #passwordpers></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="matricule" name="matricule" #matricule></ion-input>
+      </ion-item>-->
+<!--    <ion-item>
+        <ion-label>Code</ion-label>
+        <ion-select *ngFor="let item of items" [(ngModel)]="code">
+          <ion-option value="{{item.id}}">{{item.nom}}</ion-option>
+        </ion-select>
+      </ion-item>-->
+
+      <ion-item>
+        <ion-input type="text" placeholder="Code l'entreprise " name="code" #code></ion-input>
+      </ion-item>
+      <div padding>
+        <button ion-button  round outline block (click)="addPersonnel()">Vérifier</button>
+      </div>
+    </form>
+  </div>
+
+  <div [ngSwitch]="opt">
+    <form  *ngSwitchCase="'admin'">
+
+      <ion-item>
+        <ion-input type="text" placeholder="Login" name="loginAdmin" #loginAdmin></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="Password" name="passwordAdmin" #passwordAdmin></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button  round outline block (click)="SignIn()">SignIn</button>
+      </div>
+      <div padding>
+        <button ion-button  round outline block (click)="SignUp()">SignUp</button>
+      </div>
+    </form>
+  </div>
+
+
+
+
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

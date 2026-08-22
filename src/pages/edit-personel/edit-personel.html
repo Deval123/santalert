@@ -1,0 +1,69 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+<ion-navbar>
+    <ion-title>edit-personel</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding #pageContent fullscreen>
+
+  <ion-list no-line>
+
+    <ion-item>
+      <ion-label floating>Nom</ion-label>
+      <ion-input id="newnom" round type="text" name= "newnom" #newnom [(ngModel)]="nom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>matricule</ion-label>
+      <ion-input id="newmatricule" type="text" name= "newmatricule" #newmatricule [(ngModel)]="matricule"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>telephone</ion-label>
+      <ion-input id="newtelephone" type="text" name= "newtelephone" #newtelephone [(ngModel)]="telephone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>type personnel</ion-label>
+      <ion-input id="newtype_personnel" type="text" name= "newtype_personnel" #newtype_personnel [(ngModel)]="type_personnel"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div >
+
+    <button ion-button  round outline block (click)="Edit()">Update</button>
+    <!--
+        <ion-icon name="create"></ion-icon>
+    -->
+  </div>
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

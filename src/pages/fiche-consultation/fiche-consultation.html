@@ -1,0 +1,62 @@
+<ion-content padding #pageContent fullscreen>
+  <ion-list>
+
+     <ion-item>
+       <img src="{{base64Image}}" title="pict">
+     </ion-item>
+
+     <ion-item>
+      <ion-label fixed>Hôpital</ion-label>
+      <ion-input type="text" class="ion-input" [(ngModel)]="lieu"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Nom du médecin</ion-label>
+      <ion-input type="text" class="ion-input" [(ngModel)]="nom_medecin"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Particularite</ion-label>
+      <ion-input type="text" class="ion-input" [(ngModel)]="particularite"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Cout</ion-label>
+      <ion-input type="text" class="ion-input" [(ngModel)]="cout"></ion-input>
+    </ion-item>
+
+
+   <div>
+     <button ion-button color="primary" block (click)="presentActionSheet()">Take picture</button>
+   </div>
+
+   <div>
+     <button ion-button color="danger" block (click)="add()">Submit</button>
+   </div>
+  </ion-list>
+ </ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

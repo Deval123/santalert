@@ -1,0 +1,186 @@
+
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sant'alert</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding #pageContent fullscreen>
+  <ion-list *ngIf="items">
+
+    <div class="page-content">
+
+      <!-- start SUIVI SYMPTOMES list -->
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="card  card-box">
+            <div class="card-head">
+              <header>Maladie chronique </header>
+              <div class="tools">
+                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+              </div>
+            </div>
+            <div class="card-body ">
+              <div class="table-wrap">
+                <div class="table-responsive">
+                  <table class="table display product-overview mb-30" id="support_table">
+                    <thead>
+                    <tr>
+                      <th> Nom </th>
+                      <th> médecin traitant </th>
+                      <th> Restriction  </th>
+                      <th> Recommandation</th>
+                      <th> Commentaire  </th>
+                      <th> Actions </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr *ngFor="let item of items">
+                      <td>
+                        <a href="####"> {{item.nom}} </a>
+                      </td>
+                      <td> {{item.medecin_traitant}} </td>
+                      <td>{{item.restriction}}</td>
+                      <td> {{item.recommandation}} </td>
+                      <td>{{item.commentaire}}</td>
+                      <td>
+                        <a href="javascript:void(0)" (click)="editMaladieChronique(item)" class="" data-toggle="tooltip" title="Edit" >
+                          <i class="fa fa-check"></i></a>
+                        <a href="javascript:void(0)" (click)="showOneMaladieChronique(item)" class="" data-toggle="tooltip" title="View" >
+                          <i class="fa fa-certificate"></i></a>
+                        <a href="javascript:void(0)" (click)="deleteMaladieChronique(item)" class="text-inverse" title="Delete" data-toggle="tooltip">
+                          <i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end SUIVI SYMPTOMES list -->
+
+
+    </div>
+
+    <div id="circle-button-top" class="loginButton">
+      <button  (click)="addautomed()" class="button" style="background-color: dodgerblue; color: white; font-size: x-large; border-radius: 50% " >
+        +</button>  </div>
+
+  </ion-list>
+
+  <ion-list no-line *ngIf="ajout">
+
+    <ion-item>
+      <ion-input type="text" placeholder="Nom de la maladie" name="nom" #nom></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="médecin traitant" name="medecin_traitant" #medecin_traitant></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea placeholder="Restriction" name="restriction" #restriction></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea placeholder="Recommandation" name="recommandation" #recommandation></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea placeholder="Commentaire" name="commentaire" #commentaire></ion-textarea>
+    </ion-item>
+
+    <div padding >
+      <button ion-button  round outline block (click)="Ajouter()">Ajouter</button>
+    </div>
+  </ion-list>
+
+    <ion-item *ngIf="item" >
+
+      <ion-row>
+        <ion-col col-4>
+          Nom:
+        </ion-col>
+        <ion-col col-8>
+          {{item.nom}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-4>
+          Médecin traitant:
+        </ion-col>
+        <ion-col col-8>
+          {{item.medecin_traitant}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-4>
+          Restriction:
+        </ion-col>
+        <ion-col col-8>
+          {{item.restriction}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-4>
+          Recommandation:
+        </ion-col>
+        <ion-col col-8>
+          {{item.recommandation}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-4>
+          commentaire:
+        </ion-col>
+        <ion-col col-8>
+          {{item.commentaire}}
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

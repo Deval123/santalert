@@ -1,0 +1,91 @@
+
+<ion-content padding #pageContent fullscreen>
+
+  <ion-list no-line>
+
+    <ion-item>
+      <ion-label floating>Date de début</ion-label>
+      <ion-input id="newdatedebut" round type="datetime-local" name= "newdatedebut" #newdatedebut [(ngModel)]="datedebut"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>type regime</ion-label>
+      <ion-input id="newtype_regime" type="text" name= "newtype_regime" #newtype_regime [(ngModel)]="type_regime"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>poids Depart</ion-label>
+      <ion-input id="newpoidsDepart" type="text" name= "newpoidsDepart" #newpoidsDepart [(ngModel)]="poidsDepart"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Indice de masse corporel</ion-label>
+      <ion-input id="newimc" type="text" name= "newimc" #newimc [(ngModel)]="imc"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>restrictions</ion-label>
+      <ion-input id="newrestrictions" type="text" name= "newrestrictions" #newrestrictions [(ngModel)]="restrictions"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>taille</ion-label>
+      <ion-input id="newtaille" type="text" name= "newtaille" #newtaille [(ngModel)]="taille"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>natureRegime</ion-label>
+      <ion-input id="newnatureRegime" type="text" name= "newnatureRegime" #newnatureRegime [(ngModel)]="natureRegime"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>alimentationRecommande</ion-label>
+      <ion-input id="newalimentationRecommande" type="text" name= "newalimentationRecommande" #newalimentationRecommande [(ngModel)]="alimentationRecommande"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>typeTraitement</ion-label>
+      <ion-input id="newtypeTraitement" type="text" name= "newtypeTraitement" #newtypeTraitement [(ngModel)]="typeTraitement"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Date de fin</ion-label>
+      <ion-input id="newdateFin" round type="datetime-local" name= "newdateFin" #newdateFin [(ngModel)]="dateFin"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div >
+
+    <button ion-button  round outline block (click)="Edit()">Update</button>
+    <!--
+        <ion-icon name="create"></ion-icon>
+    -->
+  </div>
+  
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

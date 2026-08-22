@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "745556029558",
+    "firebase_url": "https://sant-225821.firebaseio.com",
+    "project_id": "sant-225821",
+    "storage_bucket": "sant-225821.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745556029558:android:8635b28166dc0272",
+        "android_client_info": {
+          "package_name": "com.dev.santalert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745556029558-kgk1ka83249hqd08o7g5nv2jifraplom.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dev.santalert",
+            "certificate_hash": "5824ef939b709442a17d8584aa6317f657f5562b"
+          }
+        },
+        {
+          "client_id": "745556029558-09ms981vcff9qaut7a9m0jf7ll77a7bn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6h2jHo_pgopJ5vvk2x1cc7fNspEKZm50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745556029558-0mb4dfrb0tr5r4rb852rknc0uvvhaep6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

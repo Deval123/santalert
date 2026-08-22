@@ -1,0 +1,49 @@
+<!--
+  Generated template for the CameraPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>camera pour test</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <ion-list>
+
+    <ion-item>
+      <img src="{{base64Image}}" title="pict">
+    </ion-item>
+
+   <ion-item>
+     <ion-label fixed>User name</ion-label>
+     <ion-input type="text" class="ion-input" [(ngModel)]="user_name"></ion-input>
+   </ion-item>
+
+   <ion-item>
+    <ion-label fixed>Phone number</ion-label>
+    <ion-input type="text" class="ion-input" [(ngModel)]="phone_number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Gender</ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option value="Male">Male</ion-option>
+    <ion-option value="Female">Female</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <div>
+    <button ion-button color="primary" block (click)="presentActionSheet()">Take picture</button>
+  </div>
+
+  <div>
+    <button ion-button color="danger" block (click)="add()">Submit</button>
+  </div>
+ </ion-list>
+</ion-content>

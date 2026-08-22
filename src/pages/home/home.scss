@@ -1,0 +1,58 @@
+page-home {
+  #googlebtn{
+    background-color: red;
+  }
+
+  ion-slides {
+    height: auto;
+  }
+
+  #imgwrap {
+    min-width:200px;
+    min-height:150px;
+    background-color:white;
+    text-align: center!important;
+    img {
+      border:0;
+      max-width:140px;
+      border-radius:50%;
+    }
+  }
+
+  #fbbtn{
+    color: blue;
+    background-color: dodgerblue;
+  }
+  #login{
+    background-color: white;
+    color: black;
+
+  }
+
+  #logo{
+    font-size: 30px;
+    margin-top: 80px;
+  }
+  #ion-input {
+    margin: 10px 0 20px 0;
+  }
+
+  .habitech {
+
+    background-image: url('../../assets/imgs/habitech.jpeg');
+    background-repeat: no-repeat;
+    background-size:cover;
+
+  }
+
+#owl-demo .item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+  #owl-demo2 .item {
+    margin: 3px;
+  }
+
+}
+

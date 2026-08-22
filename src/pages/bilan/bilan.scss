@@ -1,0 +1,42 @@
+page-bilan {
+  #circle-button-top{
+    /*position: fixed;*/
+    top: 75%;
+    left: 48%;
+    width: 100%;
+  }
+
+  .image-container {
+    min-height: 200px;
+    background-size: cover;
+  }
+
+  @media (min-width: 0px) {
+    .images {
+      column-count: 1;
+    }
+  }
+
+  .one-image {
+    margin: 0px;
+    max-height: 200px;
+    max-width: 300px;
+
+  }
+
+  .aucun {
+    text-transform:none; //ne met aucun effet sur le texte
+  }
+
+  .minuscule {
+    text-transform: lowercase; //met toutes les lettres de chaque mot en minuscules
+  }
+
+  .majuscule {
+    text-transform: uppercase; //met toutes les lettres de chaque mot en majuscules
+  }
+
+  .capitale {
+    text-transform: capitalize;  //met uniquement la première lettre de chaque mot en majuscule
+  }
+}

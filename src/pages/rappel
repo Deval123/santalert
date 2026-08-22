@@ -1,0 +1,73 @@
+I changed
+
+map((response: any) => response.json())
+to simply be:
+
+.pipe(map((response: any) => response.json()));
+I found the fix here:
+
+https://github.com/angular/angular/issues/15548#issuecomment-387009186
+
+git status
+git add -A
+git commit -m "uhbikjn";
+git push origin master
+notification
+https://www.djamware.com/post/5abe4c6680aca714d19d5b9d/ionic-3-angular-5-and-cordova-local-notification-example
+
+éditer mes data, lien https://ionicdon.com/how-to-edit-and-delete-displayed-data-from-mysql-database-in-ionic-app/
+
+
+les tables de test à supprimer master_user
+
+ this.storage.get('login:status').then(loggedIn => {
+        this.server = Enums.APIURL.URL1 +  '/';
+        this.selectcity = JSON.parse(localStorage.getItem('patients'));
+        console.log(this.storage.get('login:status'));
+        this.rootPage = loggedIn ? ProfilePage  : HomePage;
+      });
+
+
+
+Concernant la rubrique recommandations, on fera ainsi.
+Ce seront des thématiques précises sous forme de liste sur lesquelles on cliquera et qui nous renverront à du texte explicatif tout simplement.
+Exemple
+- Soins médicaux
+# Toujours avoir recours à un médecin en cas de maladie, malaise, ou besoin d'éclaircissements
+# Acheter ses médicaments à la pharmacie pour éviter toute déconvenue et toute complication
+- Hygiène dentaire
+# se brosser les dents trois fois par jour et après chaque repas
+# Faire une visite chez le dentiste une fois par an
+# Voir son dentiste pour le choix du dentiste
+# Éviter les repas trop chauds ou trop froids
+
+- hygiène corporelle
+# se couper les ongles pour éviter le développement des microbes
+# Bien se laver les parties intimes avec un savon adapté
+# se laver les aisselles, pommes de main, raie des fesses, creux du coude, cou, narines soigneusement
+
+this.app.getRootNav().setRoot(Test2Page); to a page without tabs still display tabs
+
+
+https://www.saninnsalas.com/how-to-build-and-deploy-an-ionic-app-for-browser/
+(Last Updated On: February 18, 2018)
+This will work for Ionic 2.x and Ionic 3.x and will make a folder structure ready for deploy.
+
+You need to run (depending on your Ionic Cli version)
+ionic cordova build browser --prod
+or
+
+ionic build browser --prod
+Then you need to use what is inside platforms/browser/www.
+
+
+ionic cordova run android --prod (to run on android emulate)
+
+
+
+config base de donnée:
+Hôte : localhost
+Non de la base de donnée: habite1012_santalert
+Utilisateur de la base de donnée: habite1012_santa
+password: uM1Gb%_kn7%j
+Port: 3306

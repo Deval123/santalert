@@ -1,0 +1,317 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+<ion-navbar>
+    <ion-title>edit son profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding #pageContent fullscreen>
+
+  <ion-list no-line>
+
+
+    <ion-item>
+      <ion-label floating>nom</ion-label>
+      <ion-input id="newnom" type="text" name= "newnom" #newnom [(ngModel)]="nom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>telephone</ion-label>
+      <ion-input id="newtelephone" type="tel" name= "newtelephone" #newtelephone [(ngModel)]="telephone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Prénom</ion-label>
+      <ion-input id="newprenom" type="text" name= "newprenom" #newprenom [(ngModel)]="prenom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Année De Naissance</ion-label>
+      <ion-input id="newanneeNais" round type="date-local"  name= "newanneeNais" #newanneeNais [(ngModel)]="anneeNais"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>lieuNais</ion-label>
+      <ion-input id="newlieuNais" type="text" name= "newlieuNais" #newlieuNais [(ngModel)]="lieuNais"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>profession</ion-label>
+      <ion-input id="newprofession" type="text" name= "newprofession" #newprofession [(ngModel)]="profession"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>filename</ion-label>
+      <ion-input id="newfilename" type="text" name= "newfilename" #newfilename [(ngModel)]="filename"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>lieu de Service</ion-label>
+      <ion-input id="newlieuService" type="text" name= "newlieuService" #newlieuService [(ngModel)]="lieuService"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>tel Bureau</ion-label>
+      <ion-input id="newtelBureau" type="tel" name= "newtelBureau" #newtelBureau [(ngModel)]="telBureau"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>residence Principal</ion-label>
+      <ion-input id="newresidencePrincipal" type="text" name= "newresidencePrincipal" #newresidencePrincipal [(ngModel)]="residencePrincipal"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>residence Secondaire</ion-label>
+      <ion-input id="newresidenceSecondaire" type="text" name= "newresidenceSecondaire" #newresidenceSecondaire [(ngModel)]="residenceSecondaire"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>nom Pere</ion-label>
+      <ion-input id="newnomPere" type="text" name= "newnomPere" #newnomPere [(ngModel)]="nomPere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>tel Pere</ion-label>
+      <ion-input id="newtelPere" type="tel" name= "newtelPere" #newtelPere [(ngModel)]="telPere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>email Pere</ion-label>
+      <ion-input id="newemailPere" type="email" name= "newemailPere" #newemailPere [(ngModel)]="emailPere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>profession Pere</ion-label>
+      <ion-input id="newprofessionPere" type="text" name= "newprofessionPere" #newprofessionPere [(ngModel)]="professionPere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>quartierPere</ion-label>
+      <ion-input id="newquartierPere" type="text" name= "newquartierPere" #newquartierPere [(ngModel)]="quartierPere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>rue Pere</ion-label>
+      <ion-input id="newruePere"  type="text" name= "newruePere" #newruePere [(ngModel)]="ruePere"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>nomMere</ion-label>
+      <ion-input id="newnomMere" type="text" name= "newnomMere" #newnomMere [(ngModel)]="nomMere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>telMere</ion-label>
+      <ion-input id="newtelMere" type="tel" name= "newtelMere" #newtelMere [(ngModel)]="telMere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>emailMere</ion-label>
+      <ion-input id="newemailMere" type="email" name= "newemailMere" #newemailMere [(ngModel)]="emailMere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Observation</ion-label>
+      <ion-input id="newobservation" type="text" name= "newobservation" #newobservation [(ngModel)]="observation"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>profession Mere</ion-label>
+      <ion-input id="newprofessionMere" type="text" name= "newprofessionMere" #newprofessionMere [(ngModel)]="professionMere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>quartier Mere</ion-label>
+      <ion-input id="newquartierMere" type="text" name= "newquartierMere" #newquartierMere [(ngModel)]="quartierMere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>rueMere</ion-label>
+      <ion-input id="newrueMere" type="text" name= "newrueMere" #newrueMere [(ngModel)]="rueMere"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>nom Tuteur</ion-label>
+      <ion-input id="newnomTuteur" type="text" name= "newnomTuteur" #newnomTuteur [(ngModel)]="nomTuteur"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>tel Tuteur</ion-label>
+      <ion-input id="newtelTuteur" type="tel" name= "newtelTuteur" #newtelTuteur [(ngModel)]="telTuteur"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>emailTuteur</ion-label>
+      <ion-input id="newemailTuteur" type="email" name= "newemailTuteur" #newemailTuteur [(ngModel)]="emailTuteur"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>profession Tuteur</ion-label>
+      <ion-input id="newprofessionTuteur" type="text" name= "newprofessionTuteur" #newprofessionTuteur [(ngModel)]="professionTuteur"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>quartier Tuteur</ion-label>
+      <ion-input id="newquartierTuteur" type="text" name= "newquartierTuteur" #newquartierTuteur [(ngModel)]="quartierTuteur"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>rueTuteur</ion-label>
+      <ion-input id="newrueTuteur" type="text" name= "newrueTuteur" #newrueTuteur [(ngModel)]="rueTuteur"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>proche1</ion-label>
+      <ion-input id="newproche1" type="text" name= "newproche1" #newproche1 [(ngModel)]="proche1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>tel_proche1</ion-label>
+      <ion-input id="newtel_proche1" type="tel" name= "newtel_proche1" #newtel_proche1 [(ngModel)]="tel_proche1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>email Proche1</ion-label>
+      <ion-input id="newemailProche1" type="email" name= "newemailProche1" #newemailProche1 [(ngModel)]="emailProche1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>residenceProche1</ion-label>
+      <ion-input id="newresidenceProche1" type="text" name= "newresidenceProche1" #newresidenceProche1 [(ngModel)]="residenceProche1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>profession Proche1</ion-label>
+      <ion-input id="newprofessionProche1" type="text" name= "newprofessionProche1" #newprofessionProche1 [(ngModel)]="professionProche1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>proche2 </ion-label>
+      <ion-input id="newproche2" type="text" name= "newproche2" #newproche2 [(ngModel)]="proche2"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>tel_proche2</ion-label>
+      <ion-input id="newtel_proche2" type="tel" name= "newtel_proche2" #newtel_proche2 [(ngModel)]="tel_proche2"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>email Proche2</ion-label>
+      <ion-input id="newemailProche2" type="email" name= "newemailProche2" #newemailProche2 [(ngModel)]="emailProche2"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>residenceProche2 </ion-label>
+      <ion-input id="newresidenceProche2" type="text" name= "newresidenceProche2" #newresidenceProche2 [(ngModel)]="residenceProche2"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>professionProche2 </ion-label>
+      <ion-input id="newprofessionProche2" type="text" name= "newprofessionProche2" #newprofessionProche2 [(ngModel)]="professionProche2"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating> proche3</ion-label>
+      <ion-input id="newproche3" type="text" name= "newproche3" #newproche3 [(ngModel)]="proche3"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>tel_proche3</ion-label>
+      <ion-input id="newtel_proche3" type="tel" name= "newtel_proche3" #newtel_proche3 [(ngModel)]="tel_proche3"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>email Proche3</ion-label>
+      <ion-input id="newemailProche3"  type="email" name= "newemailProche3" #newemailProche3 [(ngModel)]="emailProche3"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>residence Proche3</ion-label>
+      <ion-input id="newresidenceProche3" type="text" name= "newresidenceProche3" #newresidenceProche3 [(ngModel)]="residenceProche3"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>professionProche3</ion-label>
+      <ion-input id="newprofessionProche3" type="text" name= "newprofessionProche3" #newprofessionProche3 [(ngModel)]="professionProche3"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>groupeSanguin</ion-label>
+      <ion-input id="newgroupeSanguin" type="text" name= "newgroupeSanguin" #newgroupeSanguin [(ngModel)]="groupeSanguin"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>allergie</ion-label>
+      <ion-input id="newallergie" type="text" name= "newallergie" #newallergie [(ngModel)]="allergie"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating> incapacite</ion-label>
+      <ion-input id="newincapacite" type="text" name= "newincapacite" #newincapacite [(ngModel)]="incapacite"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>medecinFamille</ion-label>
+      <ion-input id="newmedecinFamille" type="text" name= "newmedecinFamille" #newmedecinFamille [(ngModel)]="medecinFamille"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>assurance</ion-label>
+      <ion-input id="newassurance" type="text" name= "newassurance" #newassurance [(ngModel)]="assurance"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>rhesus</ion-label>
+      <ion-input id="newrhesus" type="text" name= "newrhesus" #newrhesus [(ngModel)]="rhesus"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>observation Phisyque</ion-label>
+      <ion-input id="newobservationPhisyque" type="text" name= "newobservationPhisyque" #newobservationPhisyque [(ngModel)]="observationPhisyque"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>signeParticulier</ion-label>
+      <ion-input id="newsigneParticulier" type="text" name= "newsigneParticulier" #newsigneParticulier [(ngModel)]="signeParticulier"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div >
+
+    <button ion-button  round outline block (click)="Edit()">Update</button>
+    <!--
+        <ion-icon name="create"></ion-icon>
+    -->
+  </div>
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

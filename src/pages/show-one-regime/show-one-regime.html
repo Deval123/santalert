@@ -1,0 +1,127 @@
+<ion-content padding #pageContent fullscreen>
+
+<ion-item *ngFor="let item of items" >
+
+    <ion-row>
+      <ion-col col-4>
+        Type:
+      </ion-col>
+      <ion-col col-8>
+        {{item.type_regime}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Date:
+      </ion-col>
+      <ion-col col-8>
+        {{item.datedebut}}
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4>
+        nature:
+      </ion-col>
+      <ion-col col-8>
+        {{item.natureRegime}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Poids initial:
+      </ion-col>
+      <ion-col col-8>
+        {{item.poidsDepart}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Indice de masse corporel:
+      </ion-col>
+      <ion-col col-8>
+        {{item.imc}}
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4>
+        Tour de taile initial:
+      </ion-col>
+      <ion-col col-8>
+        {{item.taille}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Alimentation Recommande:
+      </ion-col>
+      <ion-col col-8>
+        {{item.alimentationRecommande}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Restrictions :
+      </ion-col>
+      <ion-col col-8>
+        {{item.restrictions}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Type Traitement:
+      </ion-col>
+      <ion-col col-8>
+        {{item.typeTraitement}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        Date de Fin
+      </ion-col>
+      <ion-col col-8>
+        {{item.dateFin}}
+      </ion-col>
+
+    </ion-row>
+    <div padding>
+      <button ion-button  round outline block (click)="showParamRegime(item)">Voir les paramètres de ce regime</button>
+    </div>
+
+  </ion-item>
+</ion-content>
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

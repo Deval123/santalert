@@ -1,0 +1,104 @@
+
+<ion-content padding #pageContent fullscreen>
+
+  <ion-list no-line>
+    <ion-item>
+      <ion-label floating>Date du jour</ion-label>
+      <ion-input id="newdatecreate" round type="datetime-local" name= "newdatecreate" #newdatecreate [(ngModel)]="datecreate"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Intitule</ion-label>
+      <ion-input id="newintitule" type="text" name= "newintitule" #newintitule [(ngModel)]="intitule"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Temperature</ion-label>
+      <ion-input id="newtemperature" type="text" name= "newtemperature" #newtemperature [(ngModel)]="temperature"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Tension</ion-label>
+      <ion-input id="newtension" type="text" name= "newtension" #newtension [(ngModel)]="tension"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Tour de taille</ion-label>
+      <ion-input id="newtaille" type="text" name= "newtaille" #newtaille [(ngModel)]="taille"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>poids Actuel</ion-label>
+      <ion-input id="newpoidsActuel" type="text" name= "newpoidsActuel" #newpoidsActuel [(ngModel)]="poidsActuel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>indice de masse corporel</ion-label>
+      <ion-input id="newimc" type="text" name= "newimc" #newimc [(ngModel)]="imc"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Tau de graisse corporel</ion-label>
+      <ion-input id="newtgc" type="text" name= "newtgc" #newtgc [(ngModel)]="tgc"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>masse Minérale Osseuse</ion-label>
+      <ion-input id="newmasseMinEraleOsseuse" type="text" name= "newmasseMinEraleOsseuse" #newmasseMinEraleOsseuse [(ngModel)]="masseMinEraleOsseuse"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>pourcentage en Eau</ion-label>
+      <ion-input id="newpourcentageEau" type="text" name= "newpourcentageEau" #newpourcentageEau [(ngModel)]="pourcentageEau"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>masse Musculaire</ion-label>
+      <ion-input id="newmasseMusculaire" type="text" name= "newmasseMusculaire" #newmasseMusculaire [(ngModel)]="masseMusculaire"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>evaluation Sihouette</ion-label>
+      <ion-input id="newevaluationSihouette" type="text" name= "newevaluationSihouette" #newevaluationSihouette [(ngModel)]="evaluationSihouette"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Taux de graisse Viscerale</ion-label>
+      <ion-input id="newtgViscerale" type="text" name= "newtgViscerale" #newtgViscerale [(ngModel)]="tgViscerale"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div >
+
+    <button ion-button  round outline block (click)="Edit()">Update</button>
+
+  </div>
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

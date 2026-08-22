@@ -1,0 +1,51 @@
+<!--
+  Generated template for the AddAdminPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>add-admin</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list no-line>
+    <ion-item>
+      <ion-input type="text" placeholder="login" name="login" #login></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="password" name="password" #password></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input  type="tel" placeholder="Telephone" name="telephone" #telephone></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input  type="email" placeholder="email" name="email" #email></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select [(ngModel)]="sexe" name="gender" #gender>
+        <ion-option value="féminin">Female</ion-option>
+        <ion-option value="masculin">Male</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea placeholder="Description" name="description" #description></ion-textarea>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button  round outline block (click)="Ajouter()">Ajouter</button>
+  </div>
+</ion-content>

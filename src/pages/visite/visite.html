@@ -1,0 +1,132 @@
+<ion-content padding>
+  <div *ngIf="!button" class="row col-md-4">
+    <ion-list>
+      <ion-item *ngIf="!Visite1">
+        <ion-label style="color: black; background-color: #dddddd;">Visite1</ion-label>
+        <ion-checkbox [(ngModel)]="Visite1" (click)="visite1()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite1">
+        <ion-label style="color: black; background-color: red;">Visite1</ion-label>
+        <ion-checkbox  ></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="!Visite2">
+        <ion-label style="color: black; background-color: #dddddd;">Visite2</ion-label>
+        <ion-checkbox [(ngModel)]="Visite2" (click)="visite2()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite2">
+        <ion-label style="color: black; background-color: red;">Visite2</ion-label>
+        <ion-checkbox  ></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="!Visite3">
+        <ion-label style="color: black; background-color: #dddddd;">Visite3</ion-label>
+        <ion-checkbox [(ngModel)]="Visite3" (click)="visite3()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite3">
+        <ion-label style="color: black; background-color: red;">Visite3</ion-label>
+        <ion-checkbox ></ion-checkbox>
+      </ion-item>
+
+
+      <ion-item *ngIf="!Visite4">
+        <ion-label style="color: black; background-color: #dddddd;">Visite4</ion-label>
+        <ion-checkbox [(ngModel)]="Visite4" (click)="visite4()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite4">
+        <ion-label style="color: black; background-color: red;">Visite4</ion-label>
+        <ion-checkbox ></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="!Visite5">
+        <ion-label style="color: black; background-color: #dddddd;">Visite5</ion-label>
+        <ion-checkbox [(ngModel)]="Visite5" (click)="visite5()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite5">
+        <ion-label style="color: black; background-color: red;">Visite5</ion-label>
+        <ion-checkbox ></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="!Visite6">
+        <ion-label style="color: black; background-color: #dddddd;">Visite6</ion-label>
+        <ion-checkbox [(ngModel)]="Visite6" (click)="visite6()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite6">
+        <ion-label style="color: black; background-color: red;">Visite6</ion-label>
+        <ion-checkbox ></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="!Visite7">
+        <ion-label style="color: black; background-color: #dddddd;">Visite7</ion-label>
+        <ion-checkbox [(ngModel)]="Visite7" (click)="visite7()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite7">
+        <ion-label style="color: black; background-color: red;">Visite7</ion-label>
+        <ion-checkbox ></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="!Visite8">
+        <ion-label style="color: black; background-color: #dddddd;">Visite8</ion-label>
+        <ion-checkbox [(ngModel)]="Visite8" (click)="visite8()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite8">
+        <ion-label style="color: black; background-color: red;">Visite8</ion-label>
+        <ion-checkbox ></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="!Visite8">
+        <ion-label style="color: black; background-color: #dddddd;">Visite9</ion-label>
+        <ion-checkbox [(ngModel)]="Visite9" (click)="visite9()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite8">
+        <ion-label style="color: black; background-color: red;">Visite9</ion-label>
+        <ion-checkbox ></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="!Visite8">
+        <ion-label style="color: black; background-color: #dddddd;">Visite10</ion-label>
+        <ion-checkbox [(ngModel)]="Visite10" (click)="visite10()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="Visite8">
+        <ion-label style="color: black; background-color: red;">Visite10</ion-label>
+        <ion-checkbox ></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="button">
+    <ion-list>
+
+      <ion-item>
+        <img  src="{{base64Image}}" title="pict" alt="image de votre visite">
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed style="color: black; background-color: #dddddd;">Lieu de la visite</ion-label>
+        <ion-input type="text" class="ion-input" [(ngModel)]="nom_hopital"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed style="color: black; background-color: #dddddd;">Date de réalisation</ion-label>
+        <ion-input type="date" class="ion-input" [(ngModel)]="date_realisation"></ion-input>
+      </ion-item>
+
+      <div>
+        <button ion-button color="primary" block (click)="presentActionSheet()">Take picture</button>
+      </div>
+
+      <div>
+        <button ion-button color="danger" block (click)="add()">Submit</button>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

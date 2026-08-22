@@ -1,0 +1,103 @@
+
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+
+  <ion-navbar>
+    <ion-title>show-admin</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding #pageContent fullscreen>
+  <ion-list >
+
+    <div class="page-content">
+
+
+
+      <!-- start SUIVI SYMPTOMES list -->
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="card  card-box">
+            <div class="card-head">
+              <header>Admin</header>
+              <div class="tools">
+                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+              </div>
+            </div>
+            <div class="card-body ">
+              <div class="table-wrap">
+                <div class="table-responsive">
+                  <table class="table display product-overview mb-30" id="support_table">
+                    <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Email</th>
+                      <th>telephone </th>
+                      <th> Actions </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of items">
+                      <td>
+                        <a href="javascript:void(0)" (click)="showOneAdmin(item)"> {{item.login}} </a>
+                      </td>
+                      <td> {{item.telephone}} </td>
+                      <td>{{item.email}}</td>
+                      <td>
+                        <a href="javascript:void(0)" (click)="editAdmin(item)" class="" data-toggle="tooltip" title="Edit" >
+                          <i class="fa fa-check"></i></a>
+                        <a href="javascript:void(0)" (click)="deleteAdmin(item)" class="text-inverse" title="Delete" data-toggle="tooltip">
+                          <i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end SUIVI SYMPTOMES list -->
+
+
+    </div>
+
+    <div id="circle-button-top" class="loginButton">
+      <button  (click)="addautomed()" class="button" style="background-color: dodgerblue; color: white; font-size: x-large; border-radius: 50% " >
+        +</button>  </div>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row >
+        <marquee>
+          <ion-slides [slidesPerView]="4">
+            <ion-slide>
+              <img src="assets/imgs/slider/norvégienne.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/archi-doc1.jpg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/h2o.jpeg" alt="">
+            </ion-slide>
+            <ion-slide>
+              <img src="assets/imgs/slider/nomoov.jpeg" alt="">
+            </ion-slide>
+          </ion-slides>
+          <h6>Insertions publicitaires disponibles au 697019629 / 673230997</h6>
+        </marquee>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
