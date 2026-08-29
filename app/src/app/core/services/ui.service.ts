@@ -4,17 +4,25 @@ import { Injectable } from '@angular/core';
  * Alertes & spinner de chargement.
  *
  * On crée les éléments `<ion-alert>` / `<ion-loading>` à la main : avec
- * `@ionic/angular` v9 (build "custom elements") + Vite, `AlertController` /
- * `LoadingController.create()` ne résolvent jamais leur promesse et figent
- * tout `await`. Les éléments créés directement fonctionnent.
+ * `@ionic/angular` v9 (build "custom elements"), `AlertController` /
+ * `LoadingController.create()` ne résolvent pas toujours leur promesse.
  *
- * Chaque `present()` / `dismiss()` est borné par un timeout : même si l'overlay
- * se comporte mal, l'appli ne se fige pas.
+ * ⚠️ En build prod, les custom elements `ion-alert` / `ion-loading` peuvent ne
+ * pas être enregistrés (tree-shaking : aucun composant ne les importe). On teste
+ * donc `typeof el.present === 'function'` et on retombe sur un repli natif
+ * (`window.alert`, exécution sans spinner) si l'élément n'est pas fonctionnel.
+ * `main.ts` importe par ailleurs `IonAlert` / `IonLoading` pour forcer leur
+ * enregistrement quand c'est possible.
  */
 @Injectable({ providedIn: 'root' })
 export class UiService {
   async alert(header: string, message: string): Promise<void> {
     const el = document.createElement('ion-alert') as HTMLIonAlertElement;
+    if (typeof el.present !== 'function') {
+      // custom element non enregistré -> repli natif (bloquant, comme onDidDismiss)
+      window.alert(message ? `${header}\n\n${message}` : header);
+      return;
+    }
     el.header = header;
     el.message = message;
     el.buttons = ['OK'];
@@ -32,14 +40,19 @@ export class UiService {
   /** Exécute `fn` en affichant un spinner ; le masque quoi qu'il arrive. */
   async withLoading<T>(message: string, fn: () => Promise<T>): Promise<T> {
     const el = document.createElement('ion-loading') as HTMLIonLoadingElement;
-    el.message = message;
-    document.body.appendChild(el);
-    await withTimeout(el.present(), 2000).catch(() => {});
+    const usable = typeof el.present === 'function';
+    if (usable) {
+      el.message = message;
+      document.body.appendChild(el);
+      await withTimeout(el.present(), 2000).catch(() => {});
+    }
     try {
       return await fn();
     } finally {
-      await withTimeout(el.dismiss(), 2000).catch(() => {});
-      el.remove();
+      if (usable) {
+        await withTimeout(el.dismiss(), 2000).catch(() => {});
+        el.remove();
+      }
     }
   }
 }
