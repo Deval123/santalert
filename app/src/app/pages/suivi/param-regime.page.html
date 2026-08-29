@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-back-button [defaultHref]="'/suivi/regimes/view/' + id"></ion-back-button></ion-buttons>
+    <ion-title>Paramètres du régime</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="add()">
+    <ion-list>
+      <ion-item *ngFor="let f of fields">
+        <ion-input
+          [label]="f.label"
+          labelPlacement="floating"
+          [type]="f.type || 'text'"
+          [name]="f.key"
+          [(ngModel)]="model[f.key]"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit">Ajouter le relevé</ion-button>
+    </div>
+  </form>
+
+  <ion-list>
+    <ion-item *ngFor="let row of rows">
+      <ion-label class="ion-text-wrap">
+        <strong>{{ row.dateParam || '—' }}</strong>
+        <br /><small>
+          Poids {{ row.poids || '—' }} · T° {{ row.temperature || '—' }} ·
+          Tension {{ row.tension || '—' }}
+        </small>
+        <br /><small>{{ row.observation || '' }}</small>
+      </ion-label>
+      <ion-button slot="end" fill="clear" color="danger" (click)="remove(row)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item *ngIf="!loading && !rows.length" lines="none">
+      <ion-label>Aucun relevé pour ce régime.</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

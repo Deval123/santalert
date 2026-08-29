@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-back-button defaultHref="/admin"></ion-back-button></ion-buttons>
+    <ion-title>Nouvel établissement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="submit()">
+    <ion-list>
+      <ion-item>
+        <ion-select label="Statut" labelPlacement="floating" name="statut" [(ngModel)]="model['statut']">
+          <ion-select-option value="Public">Public</ion-select-option>
+          <ion-select-option value="Privé">Privé</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select label="Type" labelPlacement="floating" name="type" [(ngModel)]="model['type']">
+          <ion-select-option value="officine">Officine</ion-select-option>
+          <ion-select-option value="formation_sanitaire">Formation sanitaire</ion-select-option>
+          <ion-select-option value="Laboratoire">Laboratoire</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngFor="let f of fields">
+        <ion-input
+          [label]="f.label"
+          labelPlacement="floating"
+          [type]="f.type || 'text'"
+          [name]="f.key"
+          [(ngModel)]="model[f.key]"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit">Ajouter</ion-button>
+    </div>
+  </form>
+</ion-content>

@@ -91,6 +91,7 @@ export class AppComponent implements OnInit {
   private readonly staffMenu: MenuLink[] = [
     { title: 'Accueil', url: '/home-personnel' },
     { title: 'Gestion patient', url: '/gestion-patient' },
+    { title: 'Départements / services', url: '/departement' },
     { title: 'Agenda', url: '/agenda-personnel' },
     { title: "Infos d'urgence", url: '/infos-urgence' },
     { title: 'Suivi mère & enfant', url: '/suivi-mere-enfant' },

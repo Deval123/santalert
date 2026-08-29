@@ -22,6 +22,7 @@ cp .env.example .env
 
 # 3. Schéma
 mysql -u santalert -psantalert santalert < schema/001_schema.sql
+mysql -u santalert -psantalert santalert < schema/002_remaining_domains.sql
 
 # 4. Données de test
 php schema/seed.php
@@ -89,7 +90,21 @@ curl -s -XPOST localhost:8000/showPays.php -d '{}'
    requêtes via `$pdo->prepare()`, `reply(...)` / `reply_rows(...)`.
 4. Retirer la route `/pending/<x>` correspondante dans `../app` quand la page est portée.
 
-Reste à faire : bilan, regime, param-regime, soins (auto_med), agenda patients,
-rdv, maladie chronique, consultation, hospitalisation, examen, visite, vaccin,
-grossesse, pharmacie, recommandation, infos-urgence, parametres, ets,
-departement, ordonnance/traitement/auscultation, upload, aksi_*.
+Reste à faire : rdv, grossesse (suivi détaillé), upload photo (caméra web),
+`aksi_*` héritées. Fait : bilan, regime, param-regime, soins (auto_med),
+agenda patients, maladie chronique, consultation, hospitalisation, examen,
+visite, vaccin, pharmacie, recommandation, infos-urgence, parametres,
+etablissement (`insertEts` / `showEts`), departement, ordonnance / traitement /
+auscultation.
+
+### Lot « domaines restants » (`schema/002_remaining_domains.sql`)
+
+- `showParamRegime.php` | `{id}` (regime_id) | `{server_response:[relevés]}`
+- `insertParamRegime.php` | `{regime_id, dateParam, poids, temperature, tension, observation}` | `"Successfull"`
+- `editParamRegime.php` | `{id, new<Col>...}` | `"data update successfull"`
+- `deleteParamRegime.php` | `{id}` | `"data deleted successfully"`
+- `showDepartement.php` | `{code?}` | `{server_response:[départements]}`
+- `insertDepartement.php` | `{nom, description, code}` | `"Successfull"`
+- `deleteDepartement.php` | `{id}` | `"data deleted successfully"`
+- `insertEts.php` | `{statut, nom, code, telephone, email, type, adresse, ville}` | `"Registration successfull"` \| `"Error: ..."`
+- `showEts.php` | — | `{server_response:[établissements]}`
