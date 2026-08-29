@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>{{ cfg.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let row of rows">
+      <ion-label class="ion-text-wrap">
+        <div class="row-main">
+          <span class="row-cell" *ngFor="let c of cfg.columns">
+            <small>{{ c.label }}</small><br />{{ row[c.key] || '—' }}
+          </span>
+        </div>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="view(row)"><ion-icon slot="icon-only" name="eye-outline"></ion-icon></ion-button>
+        <ng-container *ngIf="!cfg.readonly">
+          <ion-button (click)="edit(row)"><ion-icon slot="icon-only" name="create-outline"></ion-icon></ion-button>
+          <ion-button color="danger" (click)="remove(row)"><ion-icon slot="icon-only" name="trash-outline"></ion-icon></ion-button>
+        </ng-container>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="!loading && !rows.length" lines="none">
+    <ion-label class="ion-text-wrap">Aucun enregistrement.</ion-label>
+  </ion-item>
+
+  <ion-fab *ngIf="!cfg.readonly" slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="add()"><ion-icon name="add"></ion-icon></ion-fab-button>
+  </ion-fab>
+</ion-content>

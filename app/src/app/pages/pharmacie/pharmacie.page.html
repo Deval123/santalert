@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Pharmacie de garde</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="reset()"><ion-icon slot="icon-only" name="refresh-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Étape 1 : choix de la ville -->
+  <ng-container *ngIf="!selectedCity">
+    <ion-searchbar
+      placeholder="Rechercher une ville"
+      [(ngModel)]="searchTerm"
+      (ionInput)="applyFilter()"
+    ></ion-searchbar>
+
+    <ion-list>
+      <ion-item button *ngFor="let city of cities" (click)="selectCity(city)">
+        <ion-label>{{ city.name }}</ion-label>
+      </ion-item>
+      <ion-item *ngIf="!cities.length" lines="none">
+        <ion-label>Aucune ville trouvée.</ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <!-- Étape 2 : pharmacies de la ville -->
+  <ng-container *ngIf="selectedCity">
+    <ion-button fill="clear" (click)="reset()">
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon> Changer de ville
+    </ion-button>
+
+    <ion-list>
+      <ion-list-header><ion-label>{{ selectedCity.name }}</ion-label></ion-list-header>
+      <ion-item *ngFor="let p of pharmacies">
+        <ion-label class="ion-text-wrap">
+          <strong>{{ p.nom }}</strong>
+          <ion-badge *ngIf="p.deGarde == 1" color="success">de garde</ion-badge>
+          <br />
+          <small>
+            {{ p.localisation || '—' }} · Tél : {{ p.tel || '—' }}<br />
+            Ouvert {{ p.heure_ouverture || '?' }} – {{ p.heure_fermeture || '?' }}
+          </small>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="!pharmacies.length" lines="none">
+        <ion-label>Aucune pharmacie référencée pour cette ville.</ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+</ion-content>

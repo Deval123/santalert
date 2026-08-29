@@ -33,3 +33,12 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+# Build artifacts & secrets (migration Ionic 9 / Capacitor)
+*.apk
+*.aab
+*.jks
+*.jks.*
+*.keystore
+-alias
+api/.env

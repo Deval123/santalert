@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sant\'alert</string>
+    <string name="title_activity_main">Sant\'alert</string>
+    <string name="package_name">com.dev.santalert</string>
+    <string name="custom_url_scheme">com.dev.santalert</string>
+</resources>

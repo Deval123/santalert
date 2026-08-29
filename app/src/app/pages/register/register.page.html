@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-back-button defaultHref="/login"></ion-back-button></ion-buttons>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-segment [(ngModel)]="opt" color="primary">
+    <ion-segment-button value="patient"><ion-label>Patient</ion-label></ion-segment-button>
+    <ion-segment-button value="personnel"><ion-label>Personnel</ion-label></ion-segment-button>
+    <ion-segment-button value="admin"><ion-label>Admin</ion-label></ion-segment-button>
+  </ion-segment>
+
+  <!-- Patient -->
+  <form *ngIf="opt === 'patient'" (ngSubmit)="register()">
+    <ion-item>
+      <ion-input label="Login" labelPlacement="floating" name="username" [(ngModel)]="patient.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Nom" labelPlacement="floating" name="firstname" [(ngModel)]="patient.firstname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="email" label="Email principal" labelPlacement="floating" name="email" [(ngModel)]="patient.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="email" label="Email secondaire" labelPlacement="floating" name="email1" [(ngModel)]="patient.email1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel" label="Numéro à contacter" labelPlacement="floating" name="mobile" [(ngModel)]="patient.mobile"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel" label="Numéros d'alertes" labelPlacement="floating" name="mobile1" [(ngModel)]="patient.mobile1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" label="Mot de passe" labelPlacement="floating" name="password" [(ngModel)]="patient.password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Pays" name="country" [(ngModel)]="patient.country">
+        <ion-select-option *ngFor="let c of countries" [value]="c">{{ c.pays }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="ion-padding">
+      <ion-button expand="block" fill="outline" type="submit">Enregistrer</ion-button>
+    </div>
+  </form>
+
+  <!-- Personnel : vérification du code entreprise -->
+  <form *ngIf="opt === 'personnel'" (ngSubmit)="verifyCompanyCode()">
+    <ion-item>
+      <ion-input label="Code de l'entreprise" labelPlacement="floating" name="code" [(ngModel)]="staff.code"></ion-input>
+    </ion-item>
+    <div class="ion-padding">
+      <ion-button expand="block" fill="outline" type="submit">Vérifier</ion-button>
+    </div>
+  </form>
+
+  <!-- Admin -->
+  <form *ngIf="opt === 'admin'" (ngSubmit)="adminSignIn()">
+    <ion-item>
+      <ion-input label="Login" labelPlacement="floating" name="loginAdmin" [(ngModel)]="admin.login"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" label="Password" labelPlacement="floating" name="passwordAdmin" [(ngModel)]="admin.password"></ion-input>
+    </ion-item>
+    <div class="ion-padding">
+      <ion-button expand="block" fill="outline" type="submit">Se connecter</ion-button>
+      <ion-button expand="block" fill="clear" (click)="adminSignUp()">Créer un compte admin</ion-button>
+    </div>
+  </form>
+</ion-content>

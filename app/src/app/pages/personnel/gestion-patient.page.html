@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Gestion des patients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngFor="let e of etablissements">
+    <ion-card-header><ion-card-title>{{ e.nom }}</ion-card-title></ion-card-header>
+    <ion-card-content>Tél : {{ e.telephone }} · {{ e.ville }}</ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <p>Rechercher un patient existant (nom ou prénom) :</p>
+      <ion-searchbar [(ngModel)]="term" (keyup.enter)="rechercher()"></ion-searchbar>
+      <ion-button expand="block" (click)="rechercher()">Rechercher</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <p>Créer un nouveau compte patient :</p>
+      <ion-button expand="block" fill="outline" (click)="nouveau()">Nouveau compte</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
