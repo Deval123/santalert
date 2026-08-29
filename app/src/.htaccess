@@ -1,0 +1,31 @@
+# Sant'alert — front Angular (SPA) servi à la racine de santalert.habitechsolutions.cm,
+# aux côtés des endpoints .php du backend reconstruit.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Ne jamais réécrire les fichiers/dossiers réels : .php du backend, assets JS/CSS,
+  # images, svg, etc. sont servis directement.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Toute autre URL (routes Angular : /login, /suivi/regimes, ...) -> index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# index.html prioritaire sur index.php pour la racine "/"
+<IfModule mod_dir.c>
+  DirectoryIndex index.html index.php
+</IfModule>
+
+# Cache long pour les bundles hashés d'Angular ; pas de cache pour index.html
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2?|ttf|eot|svg|png|jpg|jpeg|gif|webp|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "index\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
