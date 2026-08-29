@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Infos utiles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-label><ion-icon name="call-outline"></ion-icon>&nbsp; Numéros d'urgence</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let u of urgences" button [href]="'tel:' + u.value">
+      <ion-label>{{ u.label }}</ion-label>
+      <ion-label slot="end" class="ion-text-end">{{ u.value }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label><ion-icon name="medkit-outline"></ion-icon>&nbsp; Conseils rapides</ion-label>
+    </ion-list-header>
+    <ion-item lines="none">
+      <ion-label class="ion-text-wrap">
+        En cas d'urgence vitale, appelez d'abord les secours, puis prévenez un proche.
+        Gardez votre fiche d'urgence (menu « Infos d'urgence ») à jour.
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label><ion-icon name="information-circle-outline"></ion-icon>&nbsp; À propos</ion-label>
+    </ion-list-header>
+    <ion-item lines="none">
+      <ion-label class="ion-text-wrap">
+        Sant'alert centralise vos informations médicales pour un accès rapide en cas de besoin.
+        <!-- TODO: compléter avec le contenu réel (liens, FAQ, contacts). -->
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-back-button [defaultHref]="'/suivi/' + cfg.slug"></ion-back-button></ion-buttons>
+    <ion-title>Détail — {{ cfg.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="row">
+    <ion-item *ngFor="let f of cfg.fields">
+      <ion-label class="ion-text-wrap">
+        <small>{{ f.label }}</small><br />
+        {{ row[f.key] || row[f.key.toLowerCase()] || '—' }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="!row" lines="none">
+    <ion-label>Enregistrement introuvable.</ion-label>
+  </ion-item>
+
+  <div class="ion-padding" *ngIf="row">
+    <ion-button expand="block" fill="outline" (click)="edit()">Modifier</ion-button>
+  </div>
+</ion-content>

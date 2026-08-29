@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Infos générales du patient</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="patient; else noPatient">
+    <ion-card>
+      <ion-card-header><ion-card-title>Identité</ion-card-title></ion-card-header>
+      <ion-card-content>
+        <ion-item *ngFor="let f of identite" lines="full">
+          <ion-label class="ion-text-wrap"><small>{{ f.label }}</small><br />{{ patient[f.key] || '—' }}</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header><ion-card-title>Filiation des parents</ion-card-title></ion-card-header>
+      <ion-card-content>
+        <ion-item *ngFor="let f of filiation" lines="full">
+          <ion-label class="ion-text-wrap"><small>{{ f.label }}</small><br />{{ patient[f.key] || '—' }}</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header><ion-card-title>Informations d'urgence</ion-card-title></ion-card-header>
+      <ion-card-content>
+        <ion-item *ngFor="let f of urgence" lines="full">
+          <ion-label class="ion-text-wrap"><small>{{ f.label }}</small><br />{{ patient[f.key] || '—' }}</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ng-template #noPatient>
+    <ion-item lines="none">
+      <ion-label class="ion-text-wrap">
+        Aucun patient sélectionné. Passez par « Gestion des patients » pour en choisir un.
+      </ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>

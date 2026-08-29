@@ -1,0 +1,13 @@
+#imgwrap {
+  text-align: center;
+  padding: 24px 0;
+
+  img {
+    max-width: 180px;
+    height: auto;
+  }
+}
+
+ion-text[color='primary'] {
+  cursor: pointer;
+}

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-back-button defaultHref="/profile-personel"></ion-back-button></ion-buttons>
+    <ion-title>Modifier ma fiche</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="save()">
+    <ion-list>
+      <ion-item *ngFor="let f of fields">
+        <ion-input
+          [label]="f.label"
+          labelPlacement="floating"
+          [type]="f.type || 'text'"
+          [name]="f.key"
+          [(ngModel)]="model[f.key]"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit">Enregistrer</ion-button>
+    </div>
+  </form>
+</ion-content>

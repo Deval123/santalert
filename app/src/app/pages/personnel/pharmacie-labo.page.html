@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Ordonnance pour la pharmacie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="patient; else noPatient">
+    <p><strong>Patient :</strong> {{ patient.nom }} {{ patient.prenom }}</p>
+
+    <ion-card>
+      <ion-card-header><ion-card-title>Ordonnances (pharmacie)</ion-card-title></ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let o of ordonnances">
+            <ion-label class="ion-text-wrap">
+              {{ o.contenu }}
+              <br /><small>{{ o.consultation_date || o.datecreate || '—' }} · {{ o.medecin || '—' }}</small>
+            </ion-label>
+          </ion-item>
+          <ion-item *ngIf="!ordonnances.length" lines="none"><ion-label>Aucune ordonnance.</ion-label></ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header><ion-card-title>Examens de laboratoire</ion-card-title></ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let e of examens">
+            <ion-label class="ion-text-wrap">
+              {{ e.contenu }}
+              <span *ngIf="e.resultat"> — <strong>{{ e.resultat }}</strong></span>
+              <br /><small>{{ e.consultation_date || e.datecreate || '—' }} · {{ e.medecin || '—' }}</small>
+            </ion-label>
+          </ion-item>
+          <ion-item *ngIf="!examens.length" lines="none"><ion-label>Aucun examen.</ion-label></ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ng-template #noPatient>
+    <ion-item lines="none">
+      <ion-label class="ion-text-wrap">
+        Aucun patient sélectionné. Passez par « Gestion des patients ».
+      </ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>

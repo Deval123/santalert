@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Agenda de l'établissement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Liste -->
+  <ng-container *ngIf="!adding">
+    <ion-list>
+      <ion-item *ngFor="let r of rows">
+        <ion-label class="ion-text-wrap">
+          <strong>{{ r.nom }} {{ r.prenom }}</strong>
+          <span *ngIf="r.telephone"> · {{ r.telephone }}</span><br />
+          <small>
+            {{ r.datedebut || '?' }} → {{ r.datefin || '?' }} · {{ r.nature || '—' }}
+            <span *ngIf="r.lieu"> · {{ r.lieu }}</span>
+            <span *ngIf="r.tiers"> · tiers : {{ r.tiers }}</span>
+          </small>
+          <div *ngIf="r.observation"><small>{{ r.observation }}</small></div>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button color="danger" (click)="remove(r)">
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item *ngIf="!rows.length" lines="none">
+        <ion-label>Aucun rendez-vous dans l'agenda.</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="adding = true"><ion-icon name="add"></ion-icon></ion-fab-button>
+    </ion-fab>
+  </ng-container>
+
+  <!-- Ajout -->
+  <form *ngIf="adding" (ngSubmit)="save()">
+    <ion-button fill="clear" (click)="adding = false">
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon> Retour
+    </ion-button>
+    <ion-list>
+      <ion-item *ngFor="let f of fields">
+        <ion-textarea
+          *ngIf="f.type === 'textarea'; else plain"
+          [label]="f.label"
+          labelPlacement="floating"
+          [name]="f.key"
+          [(ngModel)]="model[f.key]"
+        ></ion-textarea>
+        <ng-template #plain>
+          <ion-input
+            [label]="f.label"
+            labelPlacement="floating"
+            [type]="f.type || 'text'"
+            [name]="f.key"
+            [(ngModel)]="model[f.key]"
+          ></ion-input>
+        </ng-template>
+      </ion-item>
+    </ion-list>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit">Ajouter</ion-button>
+    </div>
+  </form>
+</ion-content>

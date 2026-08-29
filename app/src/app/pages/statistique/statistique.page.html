@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Statistiques</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md="4" *ngFor="let t of tiles">
+        <ion-card button (click)="open(t.route)">
+          <ion-card-content class="stat-tile">
+            <div class="stat-value">{{ stats[t.key] || 0 }}</div>
+            <div class="stat-label">{{ t.label }}</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

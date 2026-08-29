@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-back-button defaultHref="/suivi-medical"></ion-back-button></ion-buttons>
+    <ion-title>{{ cfg.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let r of rows">
+      <ion-label class="ion-text-wrap">
+        <div *ngFor="let l of linesOf(r); let first = first">
+          <strong *ngIf="first">{{ l }}</strong>
+          <small *ngIf="!first">{{ l }}</small>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="!rows.length" lines="none">
+      <ion-label>Aucun enregistrement.</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

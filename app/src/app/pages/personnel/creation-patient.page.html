@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-back-button defaultHref="/gestion-patient"></ion-back-button></ion-buttons>
+    <ion-title>Nouveau compte patient</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="create()">
+    <ion-list>
+      <ion-item>
+        <ion-input label="Login" labelPlacement="floating" name="username" [(ngModel)]="model.username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Nom" labelPlacement="floating" name="firstname" [(ngModel)]="model.firstname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="email" label="Email principal" labelPlacement="floating" name="email" [(ngModel)]="model.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="email" label="Email secondaire" labelPlacement="floating" name="email1" [(ngModel)]="model.email1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="tel" label="Numéro à contacter" labelPlacement="floating" name="mobile" [(ngModel)]="model.mobile"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="tel" label="Numéro d'alerte" labelPlacement="floating" name="mobile1" [(ngModel)]="model.mobile1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" label="Mot de passe" labelPlacement="floating" name="password" [(ngModel)]="model.password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select label="Pays" name="country" [(ngModel)]="model.country">
+          <ion-select-option *ngFor="let c of countries" [value]="c">{{ c.pays }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit">Créer le compte</ion-button>
+    </div>
+  </form>
+</ion-content>
