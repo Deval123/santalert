@@ -12,9 +12,9 @@ nouvelle n'ont aucune version commune : chaque page est portée à la main.
 | Build web (`ng build`) + APK Android (`gradlew assembleDebug`) | ✅ |
 | Infra partagée (`src/app/core/**`) | ✅ |
 | Shell + menu par rôle + routing + garde d'auth | ✅ |
-| Pages portées | `login`, `register`, `profile`, `profile-personel`, `help`, `logout` + **domaine Suivi Personnel** (`suivi-perso` conteneur + `suivi-list`/`suivi-form`/`suivi-detail` génériques couvrant soins / regimes / bilan → remplacent 13 pages legacy) |
-| Pages restantes | ~65 — voir `../src/pages/` ; chaque entrée de menu non portée pointe sur `/pending/:name` |
-| Backend | `../api/` — socle + auth/patient + CRUD bilan/regime/soins/agenda/**maladie chronique** = **~40 endpoints**, testés. Reste ~40. |
+| Pages portées | `login`, `register`, `profile`, `profile-personel`, `help`, `logout`, `pdf-view` + **domaine Suivi Personnel** (`suivi-perso` conteneur + `suivi-list`/`suivi-form`/`suivi-detail` génériques couvrant soins / regimes / bilan → remplacent 13 pages legacy) + `param-regime` (relevés d'un régime) + `departement` + `ajout-ets` |
+| Pages restantes | **0 fonctionnelle** — toutes les entrées de menu sont portées ; les pages legacy encore dans `../src/pages/` sont soit des démos abandonnées, soit déjà couvertes par les écrans génériques (voir « Domaines restants » plus bas) |
+| Backend | `../api/` — socle + auth/patient + CRUD bilan/regime/soins/agenda/maladie chronique + **param-regime / departement / etablissement** = **~50 endpoints**, testés (curl). |
 | Domaines front OK — patient | auth · profil · Suivi Personnel · Alerte · Maladie chronique · Recommandation · Infos d'urgence · Infos utiles · Pharmacie de garde · Statistiques |
 | Domaines front OK — personnel | Accueil · À propos · Agenda établissement · Gestion des patients · **Actes médicaux** (`ajout-info` : patient actif → segments Consultations / Hospitalisations, liste + ajout ; `insertConsultationPersonelEts.php` / `insertHospitalisationPersonelEts.php` / `showConsultation.php` / `showHospPatient.php`) |
 
@@ -59,10 +59,43 @@ des examens (jointure examen × consultation × patient, filtre établissement,
   `home-personnel`/`parametre-personnel` recâblés vers les vraies routes.
 - **Plus aucun lien `/pending/…` dans le code** hormis la route `/pending/:name`
   elle-même (filet de sécurité).
-- Restent non portés (jamais atteints par un lien actif) : `pdf-view`, `image`,
-  `camera` (écran dédié), `dashboard`, `departement`, `ajout-ets`, `conseils`,
-  `flore`, `consult`, `m-e-p` (suivi grossesse détaillé), pages `fiche-*`
-  (impression), quelques `edit-*` / `show-one-*` détaillés.
+
+**Domaines restants — FAIT** (lot « domaines réels ») :
+- **`param-regime`** (`pages/suivi/param-regime.page.ts`, route
+  `/suivi/regimes/:id/params`) : relevés de suivi d'un régime (poids /
+  température / tension) — liste + ajout inline + suppression. Remplace les
+  4 pages legacy `param-regime` + `add-param-regime` + `edit-param-regime` +
+  `show-one-param-regime`. Atteint via un bouton « Paramètres de suivi » dans
+  le détail d'un régime. Endpoints : `showParamRegime.php` / `insertParamRegime.php`
+  / `editParamRegime.php` / `deleteParamRegime.php` (+ colonnes ajoutées à
+  `param_regime`).
+- **`departement`** (`pages/personnel/departement.page.ts`, route `/departement`,
+  entrée de menu personnel) : services / départements d'un établissement —
+  liste + ajout + suppression. Remplace `departement` + `ajout-departement`.
+  Endpoints : `showDepartement.php` / `insertDepartement.php` /
+  `deleteDepartement.php` (table `departement_geo` + colonnes `description`, `code`).
+- **`ajout-ets`** (`pages/admin/ajout-ets.page.ts`, route `/ajout-ets`, lien depuis
+  `admin`) : création d'un établissement. Endpoint `insertEts.php` (+ `showEts.php`).
+- **`pdf-view`** (`pages/pdf-view/pdf-view.page.ts`, route `/pdf-view`) : visionneuse
+  de document, ouverte via `router.navigate(['/pdf-view'], { state: { url } })` ou
+  `{ base64, name, mime }`. Rendu délégué à `FilesService` (`openUrl` / `openBase64`).
+
+Migration DB : `../api/schema/002_remaining_domains.sql` (+ seed `departement_geo`).
+
+- **Abandonnés volontairement** (démos / échafaudages Ionic sans usage réel, jamais
+  atteints par un lien) : `image` (« Devdactic Image Upload »), `camera` +
+  `dashboard` + `update` (démo CRUD `aksi_user.php`, hors domaine médical),
+  `conseils` (cases à cocher non câblées), `flore` (placeholder), `fiche-bilan` /
+  `fiche-hospitalisation` / `fiche-patient` (`<ion-content>` vides), `m-e-p`
+  (onglets — couverts par `suivi-mere-enfant`). À supprimer de `../src/` au
+  nettoyage final.
+- **Déjà couverts par le générique** (pas de page dédiée à porter) : `consult` →
+  `/suivi-medical/consultations` + `infos-consul-prescripteur` ;
+  `fiche-consultation` → `acte-detail` / `ajout-info` ; `edit-bilan` /
+  `edit-soins` / `edit-regime` / `edit-maladie-chronique` / `edit-agenda-patients`
+  → `/suivi/:entity/edit/:id` ; `show-one-bilan` / `show-one-regime` /
+  `show-one-soins` → `/suivi/:entity/view/:id` ; `show-last-agenda-patients` →
+  `/suivi/agenda` ; `edit-patients` → `/update-profile`.
 
 **Actes chaînés — FAIT** (`pages/personnel/acte-detail.page.ts`, route
 `/ajout-info/:parent/:id`) : depuis une consultation → examen · ordonnance ·

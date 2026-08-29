@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Départements / services</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="add()">
+    <ion-list>
+      <ion-item>
+        <ion-input label="Nom" labelPlacement="floating" name="nom" [(ngModel)]="model['nom']"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Description"
+          labelPlacement="floating"
+          name="description"
+          [(ngModel)]="model['description']"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Code établissement"
+          labelPlacement="floating"
+          name="code"
+          [(ngModel)]="model['code']"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit">Ajouter</ion-button>
+    </div>
+  </form>
+
+  <ion-list>
+    <ion-item *ngFor="let row of rows">
+      <ion-label class="ion-text-wrap">
+        <strong>{{ row.nom }}</strong>
+        <br /><small>{{ row.description || '—' }}</small>
+      </ion-label>
+      <ion-button slot="end" fill="clear" color="danger" (click)="remove(row)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item *ngIf="!loading && !rows.length" lines="none">
+      <ion-label>Aucun département enregistré.</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

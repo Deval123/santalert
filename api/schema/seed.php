@@ -111,6 +111,19 @@ foreach ([
     $stmt->execute([$c, $t]);
 }
 
+// --- Départements / services de l'établissement de test ---
+reset_table($pdo, 'departement_geo');
+$stmt = $pdo->prepare(
+    'INSERT INTO departement_geo (nom, description, code, etablissement_id) VALUES (?,?,?,?)'
+);
+foreach ([
+    ['Cardiologie', 'Consultations et explorations cardiovasculaires.'],
+    ['Pédiatrie', 'Suivi et soins des enfants.'],
+    ['Laboratoire', 'Analyses biologiques et examens.'],
+] as [$nom, $desc]) {
+    $stmt->execute([$nom, $desc, 'hpdeido', $etsId]);
+}
+
 $pdo->exec('SET foreign_key_checks = 1');
 
 echo "Seed OK :\n";

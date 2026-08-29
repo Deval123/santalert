@@ -71,6 +71,12 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/suivi/suivi-detail.page').then((m) => m.SuiviDetailPage),
   },
   {
+    // Relevés de suivi d'un régime (ex pages `param-regime` + `add`/`edit`/`show-one`).
+    path: 'suivi/regimes/:id/params',
+    canActivate: [authGuard],
+    loadComponent: () => import('./pages/suivi/param-regime.page').then((m) => m.ParamRegimePage),
+  },
+  {
     path: 'suivi/:entity',
     canActivate: [authGuard],
     loadComponent: () => import('./pages/suivi/suivi-list.page').then((m) => m.SuiviListPage),
@@ -207,6 +213,17 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/admin/add-admin.page').then((m) => m.AddAdminPage),
   },
   {
+    path: 'ajout-ets',
+    canActivate: [authGuard],
+    loadComponent: () => import('./pages/admin/ajout-ets.page').then((m) => m.AjoutEtsPage),
+  },
+  {
+    path: 'departement',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./pages/personnel/departement.page').then((m) => m.DepartementPage),
+  },
+  {
     path: 'parametres',
     canActivate: [authGuard],
     loadComponent: () => import('./pages/parametres/parametres.page').then((m) => m.ParametresPage),
@@ -221,6 +238,11 @@ export const routes: Routes = [
   {
     path: 'help',
     loadComponent: () => import('./pages/help/help.page').then((m) => m.HelpPage),
+  },
+  {
+    // Visionneuse de document — ouverte via router state { url } ou { base64, name, mime }.
+    path: 'pdf-view',
+    loadComponent: () => import('./pages/pdf-view/pdf-view.page').then((m) => m.PdfViewPage),
   },
   {
     path: 'logout',

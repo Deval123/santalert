@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-back-button defaultHref="/profile"></ion-back-button></ion-buttons>
+    <ion-title>Document</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="hasDoc">
+    <ion-item lines="none">
+      <ion-label class="ion-text-wrap">
+        <strong>{{ name }}</strong>
+        <br /><small>{{ url || 'fichier embarqué (base64)' }}</small>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="!hasDoc" lines="none">
+    <ion-label class="ion-text-wrap">
+      Aucun document à afficher. Cette page s'ouvre depuis un autre écran
+      (bilan, ordonnance…) avec le fichier à visualiser.
+    </ion-label>
+  </ion-item>
+
+  <div class="ion-padding" *ngIf="hasDoc">
+    <ion-button expand="block" (click)="open()">Ouvrir le document</ion-button>
+  </div>
+</ion-content>

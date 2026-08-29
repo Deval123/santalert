@@ -59,4 +59,13 @@ export class SuiviDetailPage implements OnInit {
   edit(): void {
     this.router.navigate(['/suivi', this.cfg.slug, 'edit', this.id]);
   }
+
+  /** Le domaine "régime" a un sous-suivi de relevés (ex page `param-regime`). */
+  get isRegime(): boolean {
+    return this.cfg.slug === 'regimes';
+  }
+
+  params(): void {
+    this.router.navigate(['/suivi/regimes', this.id, 'params']);
+  }
 }
